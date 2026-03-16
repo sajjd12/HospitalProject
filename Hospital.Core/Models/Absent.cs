@@ -9,8 +9,7 @@ namespace Hospital.Core.Models
 {
     public class Absent
     {
-        [Required]
-        [Key]
+        
         public int Id { get; set; }
         public int EmployeeId { get; set; }
         public Employee Employee { get; set; }

@@ -10,8 +10,7 @@ namespace Hospital.Core.Models
 {
     public class TransferLog
     {
-        [Required]
-        [Key]
+       
         public long Id { get; set; }
         public int EmployeeId { get; set; }
         public  Employee Employee { get; set; }

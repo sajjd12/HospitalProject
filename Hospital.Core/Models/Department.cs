@@ -9,8 +9,7 @@ namespace Hospital.Core.Models
 {
     public class Department
     {
-        [Required]
-        [Key]
+        
         public int Id { get; set; }
         [Required]
         [MaxLength(100)]

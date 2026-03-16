@@ -11,8 +11,7 @@ namespace Hospital.Core.Models
 {
     public class Employee
     {
-        [Required]
-        [Key]
+        
         public int Id { get; set; }
         [Required]
         [MaxLength(250)]

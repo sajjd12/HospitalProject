@@ -10,8 +10,7 @@ namespace Hospital.Core.Models
 {
     public class AuditLog
     {
-        [Required]
-        [Key]
+        
         public long Id { get; set; }
         public DateTime Date { get; set; }
         public string UserId { get; set; }
