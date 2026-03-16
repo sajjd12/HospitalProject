@@ -14,7 +14,7 @@ namespace Hospital.Core.Models
         public int Id { get; set; }
         public int EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
-        DateTime Date { get; set; }
-        bool IsDeleted { get; set; } = false;
+        public DateTime Date { get; set; }
+        public bool isDeleted { get; set; } = false;
     }
 }

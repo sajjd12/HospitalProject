@@ -10,3 +10,4 @@ C:\Users\scorp\Source\Repos\HospitalProject\Hospital.Core\obj\Debug\net8.0\Hospi
 C:\Users\scorp\Source\Repos\HospitalProject\Hospital.Core\obj\Debug\net8.0\refint\Hospital.Core.dll
 C:\Users\scorp\Source\Repos\HospitalProject\Hospital.Core\obj\Debug\net8.0\Hospital.Core.pdb
 C:\Users\scorp\Source\Repos\HospitalProject\Hospital.Core\obj\Debug\net8.0\ref\Hospital.Core.dll
+C:\Users\scorp\Source\Repos\HospitalProject\Hospital.Core\obj\Debug\net8.0\Hospital.Core.csproj.AssemblyReference.cache

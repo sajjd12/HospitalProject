@@ -20,9 +20,10 @@ namespace Hospital.Core.Models
         public DateOnly HireDate { get; set; }
         public int DepartmentId { get; set; }
         public enShiftType ShiftType { get; set; }
-        public int JobTitle { get; set; }
+        public int JobTitleId { get; set; }
+        public virtual JobTitle JobTitle {  get; set; }
         public enGender Gender { get; set; }
-        public int CertificateType { get; set; }
+        public enCertificate CertificateType { get; set; }
         public int LeaveBalance { get; set; }
         [MaxLength(500)]
         public string Address { get; set; }

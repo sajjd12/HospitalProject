@@ -15,8 +15,9 @@ namespace Hospital.Core.Models
         public int Duration { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public bool IsDeleted { get; set; } = false;
+        public bool isDeleted { get; set; } = false;
         public int SubEmployeeId { get; set; }
+        public virtual Employee SubEmployee { get; set; }
         public enLeaveType LeaveType { get; set; }
     }
 }

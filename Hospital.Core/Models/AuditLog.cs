@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hospital.Core.Enums;
 
 namespace Hospital.Core.Models
 {
@@ -13,8 +14,8 @@ namespace Hospital.Core.Models
         [Key]
         public long Id { get; set; }
         public DateTime Date { get; set; }
-        public int UserId { get; set; }
-        public string Type { get; set; }
+        public string UserId { get; set; }
+        public enAuditType Type { get; set; }
 
     }
 }
