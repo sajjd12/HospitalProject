@@ -11,13 +11,13 @@ namespace Hospital.Core.Models
     {
         public int Id { get; set; }
         public int EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
         public int Duration { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public bool isDeleted { get; set; } = false;
         public int SubEmployeeId { get; set; }
-        public virtual Employee SubEmployee { get; set; }
+        public Employee SubEmployee { get; set; }
         public enLeaveType LeaveType { get; set; }
     }
 }

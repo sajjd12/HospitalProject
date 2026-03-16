@@ -13,7 +13,7 @@ namespace Hospital.Core.Models
         [Key]
         public int Id { get; set; }
         public int EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
         public DateTime Date { get; set; }
         public bool isDeleted { get; set; } = false;
     }

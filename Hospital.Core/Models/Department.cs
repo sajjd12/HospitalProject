@@ -16,6 +16,6 @@ namespace Hospital.Core.Models
         [MaxLength(100)]
         public string Name { get; set; }
         public bool isDeleted { get; set; } = false;
-        public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
+        public ICollection<Employee> Employees { get; set; } = new List<Employee>();
     }
 }

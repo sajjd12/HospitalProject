@@ -1,6 +1,7 @@
 ﻿using Hospital.Core.Enums;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace Hospital.Core.Models
         public int DepartmentId { get; set; }
         public enShiftType ShiftType { get; set; }
         public int JobTitleId { get; set; }
-        public virtual JobTitle JobTitle {  get; set; }
+        public JobTitle JobTitle {  get; set; }
         public enGender Gender { get; set; }
         public enCertificate CertificateType { get; set; }
         public int LeaveBalance { get; set; }
@@ -31,6 +32,8 @@ namespace Hospital.Core.Models
         public string PhoneNumber { get; set; }
         public enJobStatus JobStatus { get; set; }
         public bool isDeleted { get; set; } = false;
-        public virtual Department Department { get; set; }
+        public Department Department { get; set; }
+        public Collection<Leave> Leaves { get; set; }
+        public Collection<Absent> Absents { get; set; }
     }
 }

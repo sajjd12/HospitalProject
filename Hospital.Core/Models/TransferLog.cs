@@ -14,10 +14,10 @@ namespace Hospital.Core.Models
         [Key]
         public long Id { get; set; }
         public int EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public  Employee Employee { get; set; }
         public int OldDepartmentId { get; set; }
         public int NewDepartment { get; set; }
-        public virtual Department Department { get; set; }
+        public Department Department { get; set; }
         public enShiftType OldShiftType { get; set; }
         public enShiftType NewShiftType { get;set; }
         public DateOnly TransferDate {  get; set; }
