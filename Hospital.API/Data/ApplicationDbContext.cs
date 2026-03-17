@@ -29,6 +29,10 @@ namespace Hospital.API.Data
             builder.Entity<Absent>().HasOne(e => e.Employee).WithMany(s => s.Absents).HasForeignKey(e => e.EmployeeId).OnDelete(DeleteBehavior.Cascade);
             builder.Entity<TransferLog>().HasOne(t => t.Employee).WithMany().HasForeignKey(t => t.EmployeeId).OnDelete(DeleteBehavior.NoAction);
             builder.Entity<Leave>().HasOne(l => l.SubEmployee).WithMany().HasForeignKey(l => l.SubEmployeeId).OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<TransferLog>().HasOne(t => t.OldDepartment).WithMany().HasForeignKey(t => t.OldDepartmentId).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<TransferLog>().HasOne(t => t.NewDepartment).WithMany().HasForeignKey(t => t.NewDepartmentId).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<TransferLog>().HasOne(t => t.Employee).WithMany().HasForeignKey(t => t.EmployeeId).OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }

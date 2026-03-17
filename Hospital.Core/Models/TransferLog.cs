@@ -15,8 +15,9 @@ namespace Hospital.Core.Models
         public int EmployeeId { get; set; }
         public  Employee Employee { get; set; }
         public int OldDepartmentId { get; set; }
-        public int NewDepartment { get; set; }
-        public Department Department { get; set; }
+        public Department OldDepartment { get; set; }
+        public int NewDepartmentId { get; set; }
+        public Department NewDepartment { get; set; }
         public enShiftType OldShiftType { get; set; }
         public enShiftType NewShiftType { get;set; }
         public DateOnly TransferDate {  get; set; }

@@ -1,0 +1,85 @@
+﻿using Hospital.API.Data;
+using Hospital.Core.DTOs;
+using Hospital.Core.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Net;
+
+namespace Hospital.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DepartmentsController : ControllerBase
+    {
+        private readonly ApplicationDbContext _context;
+        public DepartmentsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<IEnumerable<DepartmentDto>>> GetDepartments()
+        {
+            var departments = await _context.Departments
+            .Select(d => new DepartmentDto
+            {
+                Id = d.Id,
+                Name = d.Name,
+                IsDeleted = d.isDeleted
+            }).ToListAsync();
+
+            return Ok(departments);
+        }
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<DepartmentDto>> GetDepartment(int id)
+        {
+            var department = await _context.Departments.FindAsync(id);
+            if (department == null) return NotFound();
+
+            return Ok(new DepartmentDto { Id = department.Id, Name = department.Name, IsDeleted = department.isDeleted });
+        }
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Admin,Manager")]
+        public async Task<ActionResult<Department>> PostDepartment(CreateDepartmentDto departmentDto)
+        {
+            try
+            {
+                var department = new Department
+                {
+                    Name = departmentDto.Name,
+                    isDeleted = false
+                };
+                _context.Departments.Add(department);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetDepartment", new { id = department.Id }, department);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, "حدث خطأ أثناء حفظ القسم.");
+            }
+        }
+        [HttpDelete("{Id}")]
+        [Authorize(Roles ="Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteDepartment(int Id)
+        {
+            var department = await _context.Departments.FindAsync(Id);
+            if (department == null)
+                return NotFound($"Department with Id = {Id} is not found");
+            department.isDeleted = true;
+            await _context.SaveChangesAsync();
+            return Ok($"Department with id = {Id} deleted!");
+        }
+    }
+}
