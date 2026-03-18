@@ -45,7 +45,7 @@ namespace Hospital.API.Controllers
             return Ok(new DepartmentDto { Id = department.Id, Name = department.Name, IsDeleted = department.isDeleted });
         }
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Authorize(Roles = "Admin,Manager")]
@@ -80,6 +80,33 @@ namespace Hospital.API.Controllers
             department.isDeleted = true;
             await _context.SaveChangesAsync();
             return Ok($"Department with id = {Id} deleted!");
+        }
+        [HttpPut("{id}")] // نضع الـ id فقط في الرابط
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<DepartmentDto>> EditDepartment(int id, [FromBody] DepartmentDto departmentDto)
+        {
+            
+            var department = await _context.Departments.FindAsync(id); 
+
+    if (department == null)
+                return NotFound($"القسم رقم {id} غير موجود.");
+
+            
+             department.Name = departmentDto.Name; 
+     department.isDeleted = departmentDto.IsDeleted; 
+
+    
+     await _context.SaveChangesAsync(); 
+
+    
+    return Ok(new DepartmentDto
+    {
+        Id = department.Id,
+        Name = department.Name,
+        IsDeleted = department.isDeleted
+    });
         }
     }
 }
