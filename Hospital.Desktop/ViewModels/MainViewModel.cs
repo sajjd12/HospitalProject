@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Threading;
 
+
 namespace Hospital.Desktop.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged

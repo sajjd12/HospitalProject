@@ -10,6 +10,8 @@
     <Application.Resources>
         <conv:BooleanToStatusConverter x:Key="BooleanToStatusConverter"/>
         <conv:BoolToVisConverter x:Key="BoolToVis"/>
+        <conv:InverseBoolConverter x:Key="InverseBool"/>
+        <conv:InverseBoolToVisConverter x:Key="InverseBoolToVis"/>
         <conv:StatusColorConverter x:Key="StatusColorConverter"/>
         <DataTemplate DataType="{x:Type vm:UsersViewModel}">
             <views:UsersView/>
