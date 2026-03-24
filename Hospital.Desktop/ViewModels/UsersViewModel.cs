@@ -95,7 +95,7 @@ namespace Hospital.Desktop.ViewModels
 
             if (selectedUser != null)
             {
-                // تحويل البيانات من DTO العرض إلى DTO الفورم
+                
                 formDto = new UserFormDTO
                 {
                     Id = selectedUser.Id,

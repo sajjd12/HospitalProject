@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital.Desktop.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,13 +24,19 @@ namespace Hospital.Desktop.Views
         public UserFormView()
         {
             InitializeComponent();
+            this.DataContextChanged += UserFormView_DataContextChanged;
         }
 
-        // يمكنك استدعاء هذه الدالة من الـ ViewModel عبر Interface أو تبسيطها هنا مؤقتاً
-        public void CloseWindow()
+        private void UserFormView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            this.DialogResult = true;
-            this.Close();
+            if (DataContext is UserFormViewModel vm)
+            {
+                
+                vm.RequestClose += () => {
+                    this.DialogResult = true;
+                    this.Close();
+                };
+            }
         }
     }
 }

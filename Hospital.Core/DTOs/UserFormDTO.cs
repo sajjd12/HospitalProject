@@ -4,7 +4,6 @@ namespace Hospital.Core.DTOs
 {
     public class UserFormDTO
     {
-        // نستخدم الـ Id لمعرفة ما إذا كانت العملية "تعديل" (يحتوي قيمة) أو "إضافة" (null)
         public string? Id { get; set; }
 
         [Required(ErrorMessage = "اسم المستخدم مطلوب")]
@@ -14,7 +13,7 @@ namespace Hospital.Core.DTOs
         [Required(ErrorMessage = "الاسم الكامل مطلوب")]
         public string FullName { get; set; }
 
-        // مطلوب فقط في حالة الإضافة، يتم تركه فارغاً في التعديل إذا لم نرد تغيير كلمة المرور
+
         public string? Password { get; set; }
 
         [Required(ErrorMessage = "يجب تحديد صلاحية للمستخدم")]
