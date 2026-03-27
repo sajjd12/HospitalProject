@@ -2617,43 +2617,42 @@
         ],
         "parameters": [
           {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "employeeId",
             "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 15
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TransferLogDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TransferLogDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TransferLogDto"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request",
@@ -3043,8 +3042,7 @@
             "format": "int32"
           },
           "newShiftType": {
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/schemas/enShiftType"
           },
           "transferDate": {
             "type": "string",
@@ -3372,18 +3370,24 @@
             "format": "int32"
           },
           "oldShiftType": {
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/schemas/enShiftType"
           },
           "newShiftType": {
-            "type": "integer",
-            "format": "int32"
+            "$ref": "#/components/schemas/enShiftType"
           },
           "transferDate": {
             "type": "string",
             "format": "date"
           },
           "adOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "oldDepartmentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "newDepartmentName": {
             "type": "string",
             "nullable": true
           }

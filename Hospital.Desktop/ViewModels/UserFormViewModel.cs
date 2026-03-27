@@ -27,8 +27,6 @@ namespace Hospital.Desktop.ViewModels
 
                 if (IsViewMode) return;
                 var currentEmployee = Employees.FirstOrDefault(e => e.Id == User.EmployeeId);
-
-                // شرط الحماية: إذا كان النص يطابق اسم الموظف المختار، لا تطلق البحث
                 if (currentEmployee != null && currentEmployee.Name == value)
                     return;
 

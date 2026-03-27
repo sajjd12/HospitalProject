@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Hospital.Desktop.Views.TransferLogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FlowDirection="RightToLeft">
+    <Grid Background="#F4F7F9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="White" Margin="15" CornerRadius="8" Padding="15">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                    <TextBlock Text="سجل التنقلات" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <Button Content="إجراء نقل جديد +" Command="{Binding NewTransferCommand}" 
+                            Width="150" Height="35" Background="#2980B9" Foreground="White" BorderThickness="0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <TextBlock Text="بحث باسم الموظف:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                             Width="250" Height="35" VerticalContentAlignment="Center" Padding="5"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <DataGrid Grid.Row="1" 
+                  ItemsSource="{Binding Logs}" 
+                  SelectedItem="{Binding SelectedLog, Mode=TwoWay}" 
+                  Margin="15,0,15,5" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  RowHeight="50"
+                  FontSize="14"
+                  VerticalContentAlignment="Center">
+            <DataGrid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick" 
+                              Command="{Binding ViewDetailsCommand}" 
+                              CommandParameter="{Binding SelectedLog}"/>
+            </DataGrid.InputBindings>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="الموظف" Binding="{Binding EmployeeName}" Width="1.5*"/>
+                <DataGridTextColumn Header="من قسم" Binding="{Binding OldDepartmentName}" Width="1.2*"/>
+                <DataGridTextColumn Header="إلى قسم" Binding="{Binding NewDepartmentName}" Width="1.2*"/>
+                <DataGridTextColumn Header="رقم الكتاب" Binding="{Binding AdOrderNumber}" Width="*"/>
+                <DataGridTextColumn Header="تاريخ النقل" Binding="{Binding TransferDate}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="2" Background="White" Margin="15,0,15,15" CornerRadius="8" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="السابق" Command="{Binding PrevPageCommand}" Width="80" Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Margin="20,0">
+                    <Run Text="صفحة "/>
+                    <Run Text="{Binding CurrentPage}" FontWeight="Bold"/>
+                    <Run Text=" من "/>
+                    <Run Text="{Binding TotalPages}" FontWeight="Bold"/>
+                </TextBlock>
+                <Button Content="التالي" Command="{Binding NextPageCommand}" Width="80" Margin="5"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -71,6 +71,7 @@ namespace Hospital.Desktop.ViewModels
                         SelectedMenuTitle = "إدارة العناوين الوظيفية";
                         break;
                     case "Transfers":
+                        CurrentView = new TransferLogViewModel();
                         SelectedMenuTitle = "التنقلات";
                         break;
                     default:

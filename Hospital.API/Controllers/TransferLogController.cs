@@ -24,27 +24,65 @@ namespace Hospital.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<IEnumerable<TransferLogDto>>> GetTransferLogs([FromQuery] int? employeeId)
+        public async Task<ActionResult> GetTransferLogs(
+    [FromQuery] string? searchTerm,
+    [FromQuery] int? employeeId,
+    [FromQuery] int page = 1,
+    [FromQuery] int pageSize = 15)
         {
-            IQueryable<TransferLog> query = _context.TransferLogs.AsNoTracking();
+            // 1. نبدأ بالاستعلام الأساسي مع تضمين بيانات الموظف للبحث باسمه
+            var query = _context.TransferLogs
+                .Include(t => t.Employee)
+                .AsNoTracking();
 
-            if (employeeId.HasValue)
-                query = query.Where(t => t.EmployeeId == employeeId);
-
-            var logs = await query.Select(t => new TransferLogDto
+            // 2. الفلترة حسب الاسم (بحث سيرفر شامل لكل السجلات)
+            if (!string.IsNullOrWhiteSpace(searchTerm))
             {
-                Id = t.Id,
-                EmployeeId = t.EmployeeId,
-                EmployeeName = t.Employee.Name, 
-                OldDepartmentId = t.OldDepartmentId,
-                NewDepartmentId = t.NewDepartmentId,
-                OldShiftType = (int)t.OldShiftType,
-                NewShiftType = (int)t.NewShiftType,
-                TransferDate = t.TransferDate,
-                AdOrderNumber = t.AdOrderNumber
-            }).ToListAsync();
+                query = query.Where(t => t.Employee.Name.Contains(searchTerm));
+            }
 
-            return Ok(logs);
+            // 3. الفلترة حسب معرف الموظف (إذا وجدت)
+            if (employeeId.HasValue)
+            {
+                query = query.Where(t => t.EmployeeId == employeeId);
+            }
+
+            // 4. حساب إجمالي السجلات بعد الفلترة وقبل التجزئة
+            var totalRecords = await query.CountAsync();
+
+            // حساب إجمالي الصفحات باستخدام المعادلة:
+            // $$TotalPages = \lceil \frac{TotalRecords}{PageSize} \rceil$$
+            var totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
+
+            // 5. جلب البيانات المخصصة للصفحة الحالية فقط مع الترتيب من الأحدث للأقدم
+            var logs = await query
+                .OrderByDescending(t => t.TransferDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(t => new TransferLogDto
+                {
+                    Id = t.Id,
+                    EmployeeId = t.EmployeeId,
+                    EmployeeName = t.Employee.Name,
+                    OldDepartmentId = t.OldDepartmentId,
+                    NewDepartmentId = t.NewDepartmentId,
+                    OldShiftType = t.OldShiftType,
+                    NewShiftType = t.NewShiftType,
+                    TransferDate = t.TransferDate,
+                    AdOrderNumber = t.AdOrderNumber,
+                    // جلب أسماء الأقسام
+                    OldDepartmentName = _context.Departments.FirstOrDefault(d => d.Id == t.OldDepartmentId).Name,
+                    NewDepartmentName = _context.Departments.FirstOrDefault(d => d.Id == t.NewDepartmentId).Name
+                }).ToListAsync();
+
+            // 6. إرجاع كائن يحتوي على البيانات ومعلومات الترقيم
+            return Ok(new
+            {
+                Items = logs,
+                TotalPages = totalPages,
+                CurrentPage = page,
+                TotalCount = totalRecords
+            });
         }
 
         [HttpPost]
@@ -66,7 +104,7 @@ namespace Hospital.API.Controllers
                 OldDepartmentId = employee.DepartmentId, 
                 NewDepartmentId = dto.NewDepartmentId,
                 OldShiftType = employee.ShiftType,      
-                NewShiftType = (enShiftType)dto.NewShiftType,
+                NewShiftType = dto.NewShiftType,
                 TransferDate = dto.TransferDate,
                 AdOrderNumber = dto.AdOrderNumber
             };
