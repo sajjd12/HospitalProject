@@ -34,7 +34,7 @@ namespace Hospital.Desktop.ViewModels
         public Array JobStatuses => Enum.GetValues(typeof(enJobStatus));
         public Array Certificates => Enum.GetValues(typeof(enCertificate));
 
-        // قوائم يتم جلبها من الـ API
+       
         public ObservableCollection<dynamic> Departments { get; set; } = new();
         
 

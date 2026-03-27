@@ -1,5 +1,6 @@
 ﻿using Hospital.API.Data;
 using Hospital.Core.DTOs;
+using Hospital.Core.Enums;
 using Hospital.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,18 +25,27 @@ namespace Hospital.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<DepartmentDto>>> GetDepartments([FromQuery] bool? IsDeleted)
         {
-            IQueryable<Department> query = _context.Departments.IgnoreQueryFilters().AsNoTracking();
-            if(IsDeleted.HasValue)
+            IQueryable<Department> query = _context.Departments.AsQueryable();
+
+            if (IsDeleted.HasValue)
             {
-                query = query.Where(e => e.isDeleted == IsDeleted.Value);
+                query = _context.Departments.IgnoreQueryFilters().Where(e => e.isDeleted == IsDeleted.Value);
             }
-            var departments = await query
-            .Select(d => new DepartmentDto
+            else
             {
-                Id = d.Id,
-                Name = d.Name,
-                IsDeleted = d.isDeleted
-            }).ToListAsync();
+                query = query.Where(e => !e.isDeleted);
+            }
+
+            var departments = await query
+                .Select(d => new DepartmentDto
+                {
+                    Id = d.Id,
+                    Name = d.Name,
+                    IsDeleted = d.isDeleted,
+                    StaffCount = d.Employees.Count(e => !e.isDeleted),
+                    MorningCount = d.Employees.Count(e => !e.isDeleted && e.ShiftType == enShiftType.Morning),
+                    NightCount = d.Employees.Count(e => !e.isDeleted && e.ShiftType == enShiftType.Night)
+                }).ToListAsync();
 
             return Ok(departments);
         }
@@ -45,10 +55,22 @@ namespace Hospital.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<DepartmentDto>> GetDepartment(int id)
         {
-            var department = await _context.Departments.IgnoreQueryFilters().FirstOrDefaultAsync(d => d.Id == id);
-            if (department == null) return NotFound(new { message = "لم يتم العثور على القسم المحدد" });
+            var department = await _context.Departments
+                .Include(d => d.Employees) 
+                .IgnoreQueryFilters()
+                .FirstOrDefaultAsync(d => d.Id == id);
 
-            return Ok(new DepartmentDto { Id = department.Id, Name = department.Name, IsDeleted = department.isDeleted });
+            if (department == null)
+                return NotFound(new { message = "لم يتم العثور على القسم المحدد" });
+            return Ok(new DepartmentDto
+            {
+                Id = department.Id,
+                Name = department.Name,
+                IsDeleted = department.isDeleted,
+                StaffCount = department.Employees.Count(e => !e.isDeleted),
+                MorningCount = department.Employees.Count(e => !e.isDeleted && e.ShiftType == enShiftType.Morning),
+                NightCount = department.Employees.Count(e => !e.isDeleted && e.ShiftType == enShiftType.Night)
+            });
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]

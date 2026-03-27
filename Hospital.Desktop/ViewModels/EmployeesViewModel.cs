@@ -191,7 +191,7 @@ namespace Hospital.Desktop.ViewModels
                 {
                     if (emp.IsDeleted)
                     {
-                        // منطق الاستعادة: نستخدم Put لتحديث حالة isDeleted إلى false
+                       
                         var fullEmp = await _apiService.GetAsync<EmployeeFullDTO>($"Employees/{emp.Id}");
                         if (fullEmp != null)
                         {
