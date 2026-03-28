@@ -12,6 +12,7 @@ namespace Hospital.Core.DTOs
         public int EmployeeId { get; set; }
         public DateTime Date { get; set; }
         public bool IsDeleted { get; set; }
+        public string EmployeeName {  get; set; }
     }
 
     public class CreateAbsentDto

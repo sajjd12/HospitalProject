@@ -2,6 +2,15 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\AbsentDetailsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AbsentFormView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AbsentsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddTransferView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

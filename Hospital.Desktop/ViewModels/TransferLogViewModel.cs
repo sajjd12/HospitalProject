@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace Hospital.Desktop.ViewModels
 {
-    // كلاس مساعد لاستقبال نتائج البحث والترقيم من السيرفر
+    
     public class PagedResult<T>
     {
         public List<T> Items { get; set; } = new();

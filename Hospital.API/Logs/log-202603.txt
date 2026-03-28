@@ -17302,3 +17302,1055 @@ FROM [JobTitles] AS [j]
 2026-03-27 23:40:08.550 +03:00 [INF] Executed action Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API) in 19.887ms
 2026-03-27 23:40:08.569 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API)'
 2026-03-27 23:40:08.574 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/JobTitles - 200 null application/json; charset=utf-8 61.5695ms
+2026-03-28 22:59:48.192 +03:00 [INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-28 22:59:50.550 +03:00 [WRN] Entity 'Employee' has a global query filter defined and is the required end of a relationship with the entity 'TransferLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-03-28 22:59:52.568 +03:00 [INF] Executed DbCommand (115ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 22:59:52.773 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 22:59:52.789 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 22:59:52.829 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[EmployeeId], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-03-28 22:59:53.492 +03:00 [INF] Now listening on: https://localhost:7278
+2026-03-28 22:59:53.498 +03:00 [INF] Now listening on: http://localhost:5180
+2026-03-28 22:59:53.654 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-28 22:59:53.658 +03:00 [INF] Hosting environment: Development
+2026-03-28 22:59:53.660 +03:00 [INF] Content root path: C:\Users\pc\source\repos\HospitalProject\Hospital.API
+2026-03-28 22:59:55.352 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/swagger/index.html - null null
+2026-03-28 22:59:56.066 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-28 22:59:56.142 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/swagger/index.html - 200 null text/html;charset=utf-8 787.9696ms
+2026-03-28 22:59:56.254 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/_vs/browserLink - null null
+2026-03-28 22:59:56.386 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - 200 14929 application/javascript; charset=utf-8 320.8465ms
+2026-03-28 22:59:56.605 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/_vs/browserLink - 200 null text/javascript; charset=UTF-8 351.9805ms
+2026-03-28 22:59:56.722 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - null null
+2026-03-28 22:59:57.038 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 316.1174ms
+2026-03-28 23:00:05.116 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7278/api/Auth/Login - application/json; charset=utf-8 44
+2026-03-28 23:00:05.362 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AuthController.Login (Hospital.API)'
+2026-03-28 23:00:05.416 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Hospital.Core.DTOs.LoginDto) on controller Hospital.API.Controllers.AuthController (Hospital.API).
+2026-03-28 23:00:05.651 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[EmployeeId], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2026-03-28 23:00:05.969 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-03-28 23:00:06.047 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:00:06.082 +03:00 [INF] Executed action Hospital.API.Controllers.AuthController.Login (Hospital.API) in 654.5846ms
+2026-03-28 23:00:06.089 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AuthController.Login (Hospital.API)'
+2026-03-28 23:00:06.105 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7278/api/Auth/Login - 200 null application/json; charset=utf-8 988.916ms
+2026-03-28 23:00:09.762 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false - null null
+2026-03-28 23:00:09.875 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:00:09.891 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.AbsentFullDto]]] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean]) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:00:10.089 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[EmployeeId], [e].[Name] AS [EmployeeName], [a].[Date], [a].[isDeleted] AS [IsDeleted]
+FROM [Absents] AS [a]
+INNER JOIN [Employees] AS [e] ON [a].[EmployeeId] = [e].[Id]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:00:10.100 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:00:10.108 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 211.8809ms
+2026-03-28 23:00:10.112 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:00:10.115 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false - 200 null application/json; charset=utf-8 352.7919ms
+2026-03-28 23:00:12.408 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false - null null
+2026-03-28 23:00:12.421 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:00:12.424 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.AbsentFullDto]]] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean]) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:00:12.447 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[EmployeeId], [e].[Name] AS [EmployeeName], [a].[Date], [a].[isDeleted] AS [IsDeleted]
+FROM [Absents] AS [a]
+INNER JOIN [Employees] AS [e] ON [a].[EmployeeId] = [e].[Id]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:00:12.454 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:00:12.459 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 29.554ms
+2026-03-28 23:00:12.462 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:00:12.466 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false - 200 null application/json; charset=utf-8 57.6268ms
+2026-03-28 23:00:24.009 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8 - null null
+2026-03-28 23:00:24.017 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:00:24.026 +03:00 [INF] Route matched with {action = "SearchEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.EmployeeLookupDto]]] SearchEmployees(System.String) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:00:24.050 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-03-28 23:00:24.077 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_1='?' (DbType = Int32), @__term_0_contains='?' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [e].[Id], [e].[Name]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = CAST(0 AS bit) AND [e].[isDeleted] = CAST(0 AS bit) AND [e].[Name] LIKE @__term_0_contains ESCAPE N'\'
+2026-03-28 23:00:24.084 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.EmployeeLookupDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:00:24.088 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API) in 56.9411ms
+2026-03-28 23:00:24.092 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:00:24.094 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8 - 200 null application/json; charset=utf-8 85.9591ms
+2026-03-28 23:00:24.525 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8%D9%81%201 - null null
+2026-03-28 23:00:24.534 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:00:24.538 +03:00 [INF] Route matched with {action = "SearchEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.EmployeeLookupDto]]] SearchEmployees(System.String) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:00:24.552 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__term_0_contains='?' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [e].[Id], [e].[Name]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = CAST(0 AS bit) AND [e].[isDeleted] = CAST(0 AS bit) AND [e].[Name] LIKE @__term_0_contains ESCAPE N'\'
+2026-03-28 23:00:24.559 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.EmployeeLookupDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:00:24.562 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API) in 16.0023ms
+2026-03-28 23:00:24.566 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:00:24.568 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8%D9%81%201 - 200 null application/json; charset=utf-8 43.0178ms
+2026-03-28 23:00:26.040 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8%D9%81%201 - null null
+2026-03-28 23:00:26.054 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:00:26.062 +03:00 [INF] Route matched with {action = "SearchEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.EmployeeLookupDto]]] SearchEmployees(System.String) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:00:26.078 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__term_0_contains='?' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [e].[Id], [e].[Name]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = CAST(0 AS bit) AND [e].[isDeleted] = CAST(0 AS bit) AND [e].[Name] LIKE @__term_0_contains ESCAPE N'\'
+2026-03-28 23:00:26.086 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.EmployeeLookupDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:00:26.092 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API) in 21.333ms
+2026-03-28 23:00:26.096 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:00:26.099 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8%D9%81%201 - 200 null application/json; charset=utf-8 58.7424ms
+2026-03-28 23:08:12.715 +03:00 [INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-28 23:08:14.680 +03:00 [WRN] Entity 'Employee' has a global query filter defined and is the required end of a relationship with the entity 'TransferLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-03-28 23:08:16.350 +03:00 [INF] Executed DbCommand (82ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:08:16.532 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:08:16.540 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:08:16.578 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[EmployeeId], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-03-28 23:08:17.103 +03:00 [INF] Now listening on: https://localhost:7278
+2026-03-28 23:08:17.106 +03:00 [INF] Now listening on: http://localhost:5180
+2026-03-28 23:08:17.243 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-28 23:08:17.297 +03:00 [INF] Hosting environment: Development
+2026-03-28 23:08:17.300 +03:00 [INF] Content root path: C:\Users\pc\source\repos\HospitalProject\Hospital.API
+2026-03-28 23:08:18.117 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/swagger/index.html - null null
+2026-03-28 23:08:19.331 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-28 23:08:19.331 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/_vs/browserLink - null null
+2026-03-28 23:08:19.344 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/swagger/index.html - 200 null text/html;charset=utf-8 1238.3822ms
+2026-03-28 23:08:19.385 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - 200 14929 application/javascript; charset=utf-8 53.6642ms
+2026-03-28 23:08:19.541 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/_vs/browserLink - 200 null text/javascript; charset=UTF-8 210.8878ms
+2026-03-28 23:08:19.667 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - null null
+2026-03-28 23:08:20.192 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 524.9089ms
+2026-03-28 23:08:22.093 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7278/api/Auth/Login - application/json; charset=utf-8 44
+2026-03-28 23:08:22.218 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AuthController.Login (Hospital.API)'
+2026-03-28 23:08:22.256 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Hospital.Core.DTOs.LoginDto) on controller Hospital.API.Controllers.AuthController (Hospital.API).
+2026-03-28 23:08:22.493 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[EmployeeId], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2026-03-28 23:08:22.804 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-03-28 23:08:22.875 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:08:22.918 +03:00 [INF] Executed action Hospital.API.Controllers.AuthController.Login (Hospital.API) in 643.8375ms
+2026-03-28 23:08:22.924 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AuthController.Login (Hospital.API)'
+2026-03-28 23:08:22.938 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7278/api/Auth/Login - 200 null application/json; charset=utf-8 845.0966ms
+2026-03-28 23:08:25.374 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:08:25.519 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:08:25.539 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:08:25.732 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:08:25.799 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:08:25.810 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:08:25.824 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 279.2398ms
+2026-03-28 23:08:25.828 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:08:25.831 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 457.4177ms
+2026-03-28 23:08:36.342 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8 - null null
+2026-03-28 23:08:36.361 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:08:36.380 +03:00 [INF] Route matched with {action = "SearchEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.EmployeeLookupDto]]] SearchEmployees(System.String) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:08:36.412 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-03-28 23:08:36.446 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_1='?' (DbType = Int32), @__term_0_contains='?' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [e].[Id], [e].[Name]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = CAST(0 AS bit) AND [e].[isDeleted] = CAST(0 AS bit) AND [e].[Name] LIKE @__term_0_contains ESCAPE N'\'
+2026-03-28 23:08:36.453 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.EmployeeLookupDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:08:36.458 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API) in 71.2313ms
+2026-03-28 23:08:36.461 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:08:36.464 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8 - 200 null application/json; charset=utf-8 122.5089ms
+2026-03-28 23:08:36.819 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8%D9%81 - null null
+2026-03-28 23:08:36.826 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:08:36.829 +03:00 [INF] Route matched with {action = "SearchEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.EmployeeLookupDto]]] SearchEmployees(System.String) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:08:36.840 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__term_0_contains='?' (Size = 250)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [e].[Id], [e].[Name]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = CAST(0 AS bit) AND [e].[isDeleted] = CAST(0 AS bit) AND [e].[Name] LIKE @__term_0_contains ESCAPE N'\'
+2026-03-28 23:08:36.846 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.EmployeeLookupDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:08:36.849 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API) in 14.6354ms
+2026-03-28 23:08:36.855 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.SearchEmployees (Hospital.API)'
+2026-03-28 23:08:36.857 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees/Search?term=%D9%85%D9%88%D8%B8%D9%81 - 200 null application/json; charset=utf-8 38.5118ms
+2026-03-28 23:08:41.507 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7278/api/Absents - application/json; charset=utf-8 59
+2026-03-28 23:08:41.515 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.PostAbsent (Hospital.API)'
+2026-03-28 23:08:41.524 +03:00 [INF] Route matched with {action = "PostAbsent", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.AbsentFullDto]] PostAbsent(Hospital.Core.DTOs.CreateAbsentDto) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:08:41.588 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__dto_EmployeeId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[isDeleted] = CAST(0 AS bit) AND [e].[Id] = @__dto_EmployeeId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-03-28 23:08:41.971 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Boolean), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Absents] ([Date], [EmployeeId], [isDeleted])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+INSERT INTO [AuditLogs] ([Date], [Type], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p3, @p4, @p5);
+2026-03-28 23:08:42.054 +03:00 [INF] Executing CreatedAtActionResult, writing value of type 'Hospital.Core.DTOs.AbsentFullDto'.
+2026-03-28 23:08:42.088 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.PostAbsent (Hospital.API) in 558.0317ms
+2026-03-28 23:08:42.092 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.PostAbsent (Hospital.API)'
+2026-03-28 23:08:42.094 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7278/api/Absents - 201 null application/json; charset=utf-8 588.1303ms
+2026-03-28 23:08:43.352 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:08:43.392 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:08:43.397 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:08:43.430 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:08:43.472 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:08:43.490 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:08:43.494 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 90.6425ms
+2026-03-28 23:08:43.497 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:08:43.503 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 150.225ms
+2026-03-28 23:12:29.259 +03:00 [INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-28 23:12:31.118 +03:00 [WRN] Entity 'Employee' has a global query filter defined and is the required end of a relationship with the entity 'TransferLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-03-28 23:12:33.463 +03:00 [INF] Executed DbCommand (137ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:12:33.715 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:12:33.723 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:12:33.767 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[EmployeeId], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-03-28 23:12:34.432 +03:00 [INF] Now listening on: https://localhost:7278
+2026-03-28 23:12:34.437 +03:00 [INF] Now listening on: http://localhost:5180
+2026-03-28 23:12:34.604 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-28 23:12:34.606 +03:00 [INF] Hosting environment: Development
+2026-03-28 23:12:34.607 +03:00 [INF] Content root path: C:\Users\pc\source\repos\HospitalProject\Hospital.API
+2026-03-28 23:12:34.918 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7278/api/Auth/Login - application/json; charset=utf-8 44
+2026-03-28 23:12:35.585 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AuthController.Login (Hospital.API)'
+2026-03-28 23:12:35.606 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/swagger/index.html - null null
+2026-03-28 23:12:35.718 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Hospital.Core.DTOs.LoginDto) on controller Hospital.API.Controllers.AuthController (Hospital.API).
+2026-03-28 23:12:36.088 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[EmployeeId], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2026-03-28 23:12:36.247 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/swagger/index.html - 200 null text/html;charset=utf-8 641.2809ms
+2026-03-28 23:12:36.547 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-28 23:12:36.569 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/_vs/browserLink - null null
+2026-03-28 23:12:36.691 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - 200 14929 application/javascript; charset=utf-8 144.0499ms
+2026-03-28 23:12:36.836 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/_vs/browserLink - 200 null text/javascript; charset=UTF-8 267.206ms
+2026-03-28 23:12:36.968 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - null null
+2026-03-28 23:12:37.144 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-03-28 23:12:37.276 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:12:37.318 +03:00 [INF] Executed action Hospital.API.Controllers.AuthController.Login (Hospital.API) in 1581.801ms
+2026-03-28 23:12:37.323 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AuthController.Login (Hospital.API)'
+2026-03-28 23:12:37.341 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7278/api/Auth/Login - 200 null application/json; charset=utf-8 2439.9674ms
+2026-03-28 23:12:37.417 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 448.6244ms
+2026-03-28 23:12:41.946 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:12:42.048 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:12:42.101 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:12:42.316 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:12:42.401 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:12:42.420 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:12:42.439 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 327.7606ms
+2026-03-28 23:12:42.445 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:12:42.452 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 506.2235ms
+2026-03-28 23:13:04.121 +03:00 [INF] Request starting HTTP/1.1 DELETE https://localhost:7278/api/Absents/1 - null null
+2026-03-28 23:13:04.148 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.DeleteAbsent (Hospital.API)'
+2026-03-28 23:13:04.156 +03:00 [INF] Route matched with {action = "DeleteAbsent", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteAbsent(Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:04.250 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = CAST(0 AS bit) AND [a].[Id] = @__p_0
+2026-03-28 23:13:04.561 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Absents] SET [isDeleted] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+INSERT INTO [AuditLogs] ([Date], [Type], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p2, @p3, @p4);
+2026-03-28 23:13:04.640 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2026-03-28 23:13:04.642 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.DeleteAbsent (Hospital.API) in 479.5438ms
+2026-03-28 23:13:04.646 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.DeleteAbsent (Hospital.API)'
+2026-03-28 23:13:04.649 +03:00 [INF] Request finished HTTP/1.1 DELETE https://localhost:7278/api/Absents/1 - 200 0 null 528.0998ms
+2026-03-28 23:13:04.659 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:13:04.667 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:04.670 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:04.682 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:04.700 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:04.707 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:04.712 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 36.4194ms
+2026-03-28 23:13:04.718 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:04.721 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 61.7113ms
+2026-03-28 23:13:07.305 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&page=1&pageSize=15 - null null
+2026-03-28 23:13:07.314 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:07.318 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:07.347 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+2026-03-28 23:13:07.369 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:07.377 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:07.381 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 55.3345ms
+2026-03-28 23:13:07.384 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:07.390 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&page=1&pageSize=15 - 200 null application/json; charset=utf-8 84.9937ms
+2026-03-28 23:13:09.209 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&page=1&pageSize=15 - null null
+2026-03-28 23:13:09.215 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:09.218 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:09.230 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+2026-03-28 23:13:09.240 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:09.248 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:09.252 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 26.192ms
+2026-03-28 23:13:09.257 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:09.262 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&page=1&pageSize=15 - 200 null application/json; charset=utf-8 53.1097ms
+2026-03-28 23:13:11.895 +03:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7278/api/Absents/1 - application/json; charset=utf-8 106
+2026-03-28 23:13:11.918 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.PutAbsent (Hospital.API)'
+2026-03-28 23:13:11.930 +03:00 [INF] Route matched with {action = "PutAbsent", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] PutAbsent(Int32, Hospital.Core.DTOs.AbsentFullDto) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:11.960 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+FROM [Absents] AS [a]
+WHERE [a].[Id] = @__id_0
+2026-03-28 23:13:11.982 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Absents] SET [isDeleted] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+INSERT INTO [AuditLogs] ([Date], [Type], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p2, @p3, @p4);
+2026-03-28 23:13:11.999 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.AbsentFullDto'.
+2026-03-28 23:13:12.002 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.PutAbsent (Hospital.API) in 65.4749ms
+2026-03-28 23:13:12.004 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.PutAbsent (Hospital.API)'
+2026-03-28 23:13:12.007 +03:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7278/api/Absents/1 - 200 null application/json; charset=utf-8 112.5818ms
+2026-03-28 23:13:12.017 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&page=1&pageSize=15 - null null
+2026-03-28 23:13:12.023 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:12.026 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:12.036 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+2026-03-28 23:13:12.046 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:12.052 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:12.057 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 23.9845ms
+2026-03-28 23:13:12.061 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:12.064 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&page=1&pageSize=15 - 200 null application/json; charset=utf-8 47.1328ms
+2026-03-28 23:13:14.852 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:13:14.870 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:14.873 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:14.882 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:14.894 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:14.907 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:14.914 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 36.481ms
+2026-03-28 23:13:14.918 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:14.921 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 68.8532ms
+2026-03-28 23:13:15.736 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:13:15.743 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:15.746 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:15.756 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:15.767 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:15.775 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:15.781 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 28.7803ms
+2026-03-28 23:13:15.785 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:15.788 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 52.0074ms
+2026-03-28 23:13:15.952 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:13:15.960 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:15.962 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:15.974 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:15.982 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:15.992 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:16.000 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 32.8867ms
+2026-03-28 23:13:16.003 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:16.005 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 53.275ms
+2026-03-28 23:13:16.366 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:13:16.373 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:16.376 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:16.386 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:16.397 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:16.405 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:16.411 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 30.0152ms
+2026-03-28 23:13:16.416 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:16.419 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 52.9618ms
+2026-03-28 23:13:37.376 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/TransferLog?searchTerm=&page=1&pageSize=15 - null null
+2026-03-28 23:13:37.394 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API)'
+2026-03-28 23:13:37.405 +03:00 [INF] Route matched with {action = "GetTransferLogs", controller = "TransferLog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetTransferLogs(System.String, System.Nullable`1[System.Int32], Int32, Int32) on controller Hospital.API.Controllers.TransferLogController (Hospital.API).
+2026-03-28 23:13:37.445 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransferLogs] AS [t]
+2026-03-28 23:13:37.518 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[EmployeeId], [t1].[Name] AS [EmployeeName], [t0].[OldDepartmentId], [t0].[NewDepartmentId], [t0].[OldShiftType], [t0].[NewShiftType], [t0].[TransferDate], [t0].[AdOrderNumber], (
+    SELECT TOP(1) [d].[Name]
+    FROM [Departments] AS [d]
+    WHERE [d].[isDeleted] = CAST(0 AS bit) AND [d].[Id] = [t0].[OldDepartmentId]) AS [OldDepartmentName], (
+    SELECT TOP(1) [d0].[Name]
+    FROM [Departments] AS [d0]
+    WHERE [d0].[isDeleted] = CAST(0 AS bit) AND [d0].[Id] = [t0].[NewDepartmentId]) AS [NewDepartmentName]
+FROM (
+    SELECT [t].[Id], [t].[AdOrderNumber], [t].[EmployeeId], [t].[NewDepartmentId], [t].[NewShiftType], [t].[OldDepartmentId], [t].[OldShiftType], [t].[TransferDate]
+    FROM [TransferLogs] AS [t]
+    ORDER BY [t].[TransferDate] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t0]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Name]
+    FROM [Employees] AS [e]
+    WHERE [e].[isDeleted] = CAST(0 AS bit)
+) AS [t1] ON [t0].[EmployeeId] = [t1].[Id]
+ORDER BY [t0].[TransferDate] DESC
+2026-03-28 23:13:37.530 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`4[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.TransferLogDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:37.562 +03:00 [INF] Executed action Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API) in 147.0121ms
+2026-03-28 23:13:37.566 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API)'
+2026-03-28 23:13:37.568 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/TransferLog?searchTerm=&page=1&pageSize=15 - 200 null application/json; charset=utf-8 192.5393ms
+2026-03-28 23:13:39.482 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:13:39.488 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:39.490 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:39.501 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:39.511 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:39.520 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:39.526 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 30.0065ms
+2026-03-28 23:13:39.529 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:39.533 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 50.6225ms
+2026-03-28 23:13:41.432 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Departments?IsDeleted=false - null null
+2026-03-28 23:13:41.438 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API)'
+2026-03-28 23:13:41.448 +03:00 [INF] Route matched with {action = "GetDepartments", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.DepartmentDto]]] GetDepartments(System.Nullable`1[System.Boolean]) on controller Hospital.API.Controllers.DepartmentsController (Hospital.API).
+2026-03-28 23:13:41.530 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Name], [d].[isDeleted] AS [IsDeleted], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e]
+    WHERE [d].[Id] = [e].[DepartmentId] AND [e].[isDeleted] = CAST(0 AS bit)) AS [StaffCount], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e0]
+    WHERE [d].[Id] = [e0].[DepartmentId] AND [e0].[isDeleted] = CAST(0 AS bit) AND [e0].[ShiftType] = 0) AS [MorningCount], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e1]
+    WHERE [d].[Id] = [e1].[DepartmentId] AND [e1].[isDeleted] = CAST(0 AS bit) AND [e1].[ShiftType] = 1) AS [NightCount]
+FROM [Departments] AS [d]
+WHERE [d].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:41.544 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.DepartmentDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:13:41.551 +03:00 [INF] Executed action Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API) in 98.1906ms
+2026-03-28 23:13:41.555 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API)'
+2026-03-28 23:13:41.558 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Departments?IsDeleted=false - 200 null application/json; charset=utf-8 125.9013ms
+2026-03-28 23:13:42.387 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=1&pageSize=15&searchTerm= - null null
+2026-03-28 23:13:42.415 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:13:42.429 +03:00 [INF] Route matched with {action = "GetEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.PagedResult`1[Hospital.Core.DTOs.EmployeeSimpleDTO]]] GetEmployees(System.Nullable`1[System.Boolean], System.String, Int32, Int32) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:13:42.460 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:42.538 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[BirthDate], [e].[HireDate], [e].[Gender], [e].[PhoneNumber], [e].[isDeleted] AS [IsDeleted], [e].[DepartmentId] AS [DepartmentID]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+ORDER BY [e].[Id] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-03-28 23:13:42.551 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.PagedResult`1[[Hospital.Core.DTOs.EmployeeSimpleDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:13:42.569 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API) in 132.6637ms
+2026-03-28 23:13:42.573 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:13:42.577 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=1&pageSize=15&searchTerm= - 200 null application/json; charset=utf-8 190.5455ms
+2026-03-28 23:13:45.189 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/JobTitles - null null
+2026-03-28 23:13:45.194 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API)'
+2026-03-28 23:13:45.204 +03:00 [INF] Route matched with {action = "GetJobTitles", controller = "JobTitles"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.JobTitleDTO]]] GetJobTitles() on controller Hospital.API.Controllers.JobTitlesController (Hospital.API).
+2026-03-28 23:13:45.228 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [j].[Id], [j].[Title]
+FROM [JobTitles] AS [j]
+2026-03-28 23:13:45.236 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.JobTitleVeiwDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:13:45.246 +03:00 [INF] Executed action Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API) in 32.8145ms
+2026-03-28 23:13:45.250 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API)'
+2026-03-28 23:13:45.254 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/JobTitles - 200 null application/json; charset=utf-8 64.4087ms
+2026-03-28 23:13:46.186 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Auth/Users?IsDeleted=False - null null
+2026-03-28 23:13:46.195 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AuthController.GetUsers (Hospital.API)'
+2026-03-28 23:13:46.204 +03:00 [INF] Route matched with {action = "GetUsers", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetUsers(System.Nullable`1[System.Boolean], System.Nullable`1[System.Boolean]) on controller Hospital.API.Controllers.AuthController (Hospital.API).
+2026-03-28 23:13:46.294 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[UserName], [a].[FullName], [a].[EmployeeId], (
+    SELECT TOP(1) [a1].[Name]
+    FROM [AspNetUserRoles] AS [a0]
+    INNER JOIN [AspNetRoles] AS [a1] ON [a0].[RoleId] = [a1].[Id]
+    WHERE [a0].[UserId] = [a].[Id]) AS [Role], [a].[IsActive], [a].[IsDeleted]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[IsDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:46.309 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.UserViewDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:13:46.333 +03:00 [INF] Executed action Hospital.API.Controllers.AuthController.GetUsers (Hospital.API) in 123.7202ms
+2026-03-28 23:13:46.336 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AuthController.GetUsers (Hospital.API)'
+2026-03-28 23:13:46.340 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Auth/Users?IsDeleted=False - 200 null application/json; charset=utf-8 154.24ms
+2026-03-28 23:13:47.213 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/TransferLog?searchTerm=&page=1&pageSize=15 - null null
+2026-03-28 23:13:47.218 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API)'
+2026-03-28 23:13:47.222 +03:00 [INF] Route matched with {action = "GetTransferLogs", controller = "TransferLog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetTransferLogs(System.String, System.Nullable`1[System.Int32], Int32, Int32) on controller Hospital.API.Controllers.TransferLogController (Hospital.API).
+2026-03-28 23:13:47.232 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransferLogs] AS [t]
+2026-03-28 23:13:47.243 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[EmployeeId], [t1].[Name] AS [EmployeeName], [t0].[OldDepartmentId], [t0].[NewDepartmentId], [t0].[OldShiftType], [t0].[NewShiftType], [t0].[TransferDate], [t0].[AdOrderNumber], (
+    SELECT TOP(1) [d].[Name]
+    FROM [Departments] AS [d]
+    WHERE [d].[isDeleted] = CAST(0 AS bit) AND [d].[Id] = [t0].[OldDepartmentId]) AS [OldDepartmentName], (
+    SELECT TOP(1) [d0].[Name]
+    FROM [Departments] AS [d0]
+    WHERE [d0].[isDeleted] = CAST(0 AS bit) AND [d0].[Id] = [t0].[NewDepartmentId]) AS [NewDepartmentName]
+FROM (
+    SELECT [t].[Id], [t].[AdOrderNumber], [t].[EmployeeId], [t].[NewDepartmentId], [t].[NewShiftType], [t].[OldDepartmentId], [t].[OldShiftType], [t].[TransferDate]
+    FROM [TransferLogs] AS [t]
+    ORDER BY [t].[TransferDate] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t0]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Name]
+    FROM [Employees] AS [e]
+    WHERE [e].[isDeleted] = CAST(0 AS bit)
+) AS [t1] ON [t0].[EmployeeId] = [t1].[Id]
+ORDER BY [t0].[TransferDate] DESC
+2026-03-28 23:13:47.262 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`4[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.TransferLogDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:47.271 +03:00 [INF] Executed action Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API) in 45.3067ms
+2026-03-28 23:13:47.279 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API)'
+2026-03-28 23:13:47.282 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/TransferLog?searchTerm=&page=1&pageSize=15 - 200 null application/json; charset=utf-8 68.4861ms
+2026-03-28 23:13:48.030 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:13:48.037 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:48.039 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:48.051 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:48.062 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:48.070 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:48.079 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 33.9328ms
+2026-03-28 23:13:48.084 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:48.096 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 66.8567ms
+2026-03-28 23:13:50.098 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:13:50.108 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:50.111 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:13:50.121 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:13:50.131 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:13:50.139 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:13:50.144 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 27.6817ms
+2026-03-28 23:13:50.149 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:13:50.151 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 53.085ms
+2026-03-28 23:14:49.635 +03:00 [INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-28 23:14:51.126 +03:00 [WRN] Entity 'Employee' has a global query filter defined and is the required end of a relationship with the entity 'TransferLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-03-28 23:14:53.030 +03:00 [INF] Executed DbCommand (122ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:14:53.278 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:14:53.287 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2026-03-28 23:14:53.349 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[EmployeeId], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-03-28 23:14:54.014 +03:00 [INF] Now listening on: https://localhost:7278
+2026-03-28 23:14:54.016 +03:00 [INF] Now listening on: http://localhost:5180
+2026-03-28 23:14:54.206 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-28 23:14:54.210 +03:00 [INF] Hosting environment: Development
+2026-03-28 23:14:54.213 +03:00 [INF] Content root path: C:\Users\pc\source\repos\HospitalProject\Hospital.API
+2026-03-28 23:14:55.110 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/swagger/index.html - null null
+2026-03-28 23:14:55.886 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/swagger/index.html - 200 null text/html;charset=utf-8 771.7748ms
+2026-03-28 23:14:55.936 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-28 23:14:55.936 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/_vs/browserLink - null null
+2026-03-28 23:14:56.139 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - 200 14929 application/javascript; charset=utf-8 204.2443ms
+2026-03-28 23:14:56.290 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/_vs/browserLink - 200 null text/javascript; charset=UTF-8 354.1292ms
+2026-03-28 23:14:56.414 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - null null
+2026-03-28 23:14:56.872 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 457.8639ms
+2026-03-28 23:15:02.115 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7278/api/Auth/Login - application/json; charset=utf-8 44
+2026-03-28 23:15:02.268 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AuthController.Login (Hospital.API)'
+2026-03-28 23:15:02.312 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Hospital.Core.DTOs.LoginDto) on controller Hospital.API.Controllers.AuthController (Hospital.API).
+2026-03-28 23:15:02.572 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[EmployeeId], [a].[FullName], [a].[IsActive], [a].[IsDeleted], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2026-03-28 23:15:03.010 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-03-28 23:15:03.094 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:15:03.132 +03:00 [INF] Executed action Hospital.API.Controllers.AuthController.Login (Hospital.API) in 805.3209ms
+2026-03-28 23:15:03.136 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AuthController.Login (Hospital.API)'
+2026-03-28 23:15:03.148 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7278/api/Auth/Login - 200 null application/json; charset=utf-8 1033.1828ms
+2026-03-28 23:15:07.089 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:15:07.287 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:15:07.306 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:15:07.536 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:07.617 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:15:07.633 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:15:07.651 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 337.3859ms
+2026-03-28 23:15:07.654 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:15:07.660 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 570.8698ms
+2026-03-28 23:15:26.993 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Departments?IsDeleted=false - null null
+2026-03-28 23:15:27.002 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API)'
+2026-03-28 23:15:27.011 +03:00 [INF] Route matched with {action = "GetDepartments", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.DepartmentDto]]] GetDepartments(System.Nullable`1[System.Boolean]) on controller Hospital.API.Controllers.DepartmentsController (Hospital.API).
+2026-03-28 23:15:27.135 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Name], [d].[isDeleted] AS [IsDeleted], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e]
+    WHERE [d].[Id] = [e].[DepartmentId] AND [e].[isDeleted] = CAST(0 AS bit)) AS [StaffCount], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e0]
+    WHERE [d].[Id] = [e0].[DepartmentId] AND [e0].[isDeleted] = CAST(0 AS bit) AND [e0].[ShiftType] = 0) AS [MorningCount], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e1]
+    WHERE [d].[Id] = [e1].[DepartmentId] AND [e1].[isDeleted] = CAST(0 AS bit) AND [e1].[ShiftType] = 1) AS [NightCount]
+FROM [Departments] AS [d]
+WHERE [d].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:27.146 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.DepartmentDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:27.153 +03:00 [INF] Executed action Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API) in 135.1849ms
+2026-03-28 23:15:27.157 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API)'
+2026-03-28 23:15:27.162 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Departments?IsDeleted=false - 200 null application/json; charset=utf-8 169.5014ms
+2026-03-28 23:15:28.787 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=1&pageSize=15&searchTerm= - null null
+2026-03-28 23:15:28.793 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:28.803 +03:00 [INF] Route matched with {action = "GetEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.PagedResult`1[Hospital.Core.DTOs.EmployeeSimpleDTO]]] GetEmployees(System.Nullable`1[System.Boolean], System.String, Int32, Int32) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:15:28.829 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:28.876 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[BirthDate], [e].[HireDate], [e].[Gender], [e].[PhoneNumber], [e].[isDeleted] AS [IsDeleted], [e].[DepartmentId] AS [DepartmentID]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+ORDER BY [e].[Id] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-03-28 23:15:28.898 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.PagedResult`1[[Hospital.Core.DTOs.EmployeeSimpleDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:28.920 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API) in 111.5676ms
+2026-03-28 23:15:28.923 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:28.927 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=1&pageSize=15&searchTerm= - 200 null application/json; charset=utf-8 139.3436ms
+2026-03-28 23:15:30.951 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=2&pageSize=15&searchTerm= - null null
+2026-03-28 23:15:30.960 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:30.962 +03:00 [INF] Route matched with {action = "GetEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.PagedResult`1[Hospital.Core.DTOs.EmployeeSimpleDTO]]] GetEmployees(System.Nullable`1[System.Boolean], System.String, Int32, Int32) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:15:30.977 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:31.012 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[BirthDate], [e].[HireDate], [e].[Gender], [e].[PhoneNumber], [e].[isDeleted] AS [IsDeleted], [e].[DepartmentId] AS [DepartmentID]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+ORDER BY [e].[Id] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-03-28 23:15:31.019 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.PagedResult`1[[Hospital.Core.DTOs.EmployeeSimpleDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:31.023 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API) in 55.7552ms
+2026-03-28 23:15:31.027 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:31.030 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=2&pageSize=15&searchTerm= - 200 null application/json; charset=utf-8 78.2398ms
+2026-03-28 23:15:31.749 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=3&pageSize=15&searchTerm= - null null
+2026-03-28 23:15:31.760 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:31.763 +03:00 [INF] Route matched with {action = "GetEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.PagedResult`1[Hospital.Core.DTOs.EmployeeSimpleDTO]]] GetEmployees(System.Nullable`1[System.Boolean], System.String, Int32, Int32) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:15:31.773 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:31.787 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[BirthDate], [e].[HireDate], [e].[Gender], [e].[PhoneNumber], [e].[isDeleted] AS [IsDeleted], [e].[DepartmentId] AS [DepartmentID]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+ORDER BY [e].[Id] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-03-28 23:15:31.798 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.PagedResult`1[[Hospital.Core.DTOs.EmployeeSimpleDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:31.802 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API) in 34.3258ms
+2026-03-28 23:15:31.806 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:31.812 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=3&pageSize=15&searchTerm= - 200 null application/json; charset=utf-8 62.8665ms
+2026-03-28 23:15:32.328 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=4&pageSize=15&searchTerm= - null null
+2026-03-28 23:15:32.334 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:32.352 +03:00 [INF] Route matched with {action = "GetEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.PagedResult`1[Hospital.Core.DTOs.EmployeeSimpleDTO]]] GetEmployees(System.Nullable`1[System.Boolean], System.String, Int32, Int32) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:15:32.370 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:32.381 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[BirthDate], [e].[HireDate], [e].[Gender], [e].[PhoneNumber], [e].[isDeleted] AS [IsDeleted], [e].[DepartmentId] AS [DepartmentID]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+ORDER BY [e].[Id] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-03-28 23:15:32.390 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.PagedResult`1[[Hospital.Core.DTOs.EmployeeSimpleDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:32.394 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API) in 31.8064ms
+2026-03-28 23:15:32.400 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:32.404 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=4&pageSize=15&searchTerm= - 200 null application/json; charset=utf-8 76.8572ms
+2026-03-28 23:15:33.058 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=5&pageSize=15&searchTerm= - null null
+2026-03-28 23:15:33.070 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:33.074 +03:00 [INF] Route matched with {action = "GetEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.PagedResult`1[Hospital.Core.DTOs.EmployeeSimpleDTO]]] GetEmployees(System.Nullable`1[System.Boolean], System.String, Int32, Int32) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:15:33.084 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:33.096 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[BirthDate], [e].[HireDate], [e].[Gender], [e].[PhoneNumber], [e].[isDeleted] AS [IsDeleted], [e].[DepartmentId] AS [DepartmentID]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+ORDER BY [e].[Id] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-03-28 23:15:33.106 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.PagedResult`1[[Hospital.Core.DTOs.EmployeeSimpleDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:33.110 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API) in 30.4826ms
+2026-03-28 23:15:33.115 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:33.118 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=5&pageSize=15&searchTerm= - 200 null application/json; charset=utf-8 60.4315ms
+2026-03-28 23:15:33.767 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=6&pageSize=15&searchTerm= - null null
+2026-03-28 23:15:33.775 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:33.780 +03:00 [INF] Route matched with {action = "GetEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.PagedResult`1[Hospital.Core.DTOs.EmployeeSimpleDTO]]] GetEmployees(System.Nullable`1[System.Boolean], System.String, Int32, Int32) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:15:33.797 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:33.804 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[BirthDate], [e].[HireDate], [e].[Gender], [e].[PhoneNumber], [e].[isDeleted] AS [IsDeleted], [e].[DepartmentId] AS [DepartmentID]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+ORDER BY [e].[Id] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-03-28 23:15:33.831 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.PagedResult`1[[Hospital.Core.DTOs.EmployeeSimpleDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:33.838 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API) in 53.2713ms
+2026-03-28 23:15:33.846 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:33.850 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=6&pageSize=15&searchTerm= - 200 null application/json; charset=utf-8 83.297ms
+2026-03-28 23:15:37.573 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/TransferLog?searchTerm=&page=1&pageSize=15 - null null
+2026-03-28 23:15:37.579 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API)'
+2026-03-28 23:15:37.590 +03:00 [INF] Route matched with {action = "GetTransferLogs", controller = "TransferLog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetTransferLogs(System.String, System.Nullable`1[System.Int32], Int32, Int32) on controller Hospital.API.Controllers.TransferLogController (Hospital.API).
+2026-03-28 23:15:37.616 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransferLogs] AS [t]
+2026-03-28 23:15:37.669 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[EmployeeId], [t1].[Name] AS [EmployeeName], [t0].[OldDepartmentId], [t0].[NewDepartmentId], [t0].[OldShiftType], [t0].[NewShiftType], [t0].[TransferDate], [t0].[AdOrderNumber], (
+    SELECT TOP(1) [d].[Name]
+    FROM [Departments] AS [d]
+    WHERE [d].[isDeleted] = CAST(0 AS bit) AND [d].[Id] = [t0].[OldDepartmentId]) AS [OldDepartmentName], (
+    SELECT TOP(1) [d0].[Name]
+    FROM [Departments] AS [d0]
+    WHERE [d0].[isDeleted] = CAST(0 AS bit) AND [d0].[Id] = [t0].[NewDepartmentId]) AS [NewDepartmentName]
+FROM (
+    SELECT [t].[Id], [t].[AdOrderNumber], [t].[EmployeeId], [t].[NewDepartmentId], [t].[NewShiftType], [t].[OldDepartmentId], [t].[OldShiftType], [t].[TransferDate]
+    FROM [TransferLogs] AS [t]
+    ORDER BY [t].[TransferDate] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t0]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Name]
+    FROM [Employees] AS [e]
+    WHERE [e].[isDeleted] = CAST(0 AS bit)
+) AS [t1] ON [t0].[EmployeeId] = [t1].[Id]
+ORDER BY [t0].[TransferDate] DESC
+2026-03-28 23:15:37.682 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`4[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.TransferLogDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:15:37.708 +03:00 [INF] Executed action Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API) in 111.8411ms
+2026-03-28 23:15:37.711 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API)'
+2026-03-28 23:15:37.714 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/TransferLog?searchTerm=&page=1&pageSize=15 - 200 null application/json; charset=utf-8 141.3412ms
+2026-03-28 23:15:41.460 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/JobTitles - null null
+2026-03-28 23:15:41.464 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API)'
+2026-03-28 23:15:41.472 +03:00 [INF] Route matched with {action = "GetJobTitles", controller = "JobTitles"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.JobTitleDTO]]] GetJobTitles() on controller Hospital.API.Controllers.JobTitlesController (Hospital.API).
+2026-03-28 23:15:41.496 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [j].[Id], [j].[Title]
+FROM [JobTitles] AS [j]
+2026-03-28 23:15:41.504 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.JobTitleVeiwDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:41.512 +03:00 [INF] Executed action Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API) in 35.0398ms
+2026-03-28 23:15:41.515 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API)'
+2026-03-28 23:15:41.519 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/JobTitles - 200 null application/json; charset=utf-8 58.1138ms
+2026-03-28 23:15:42.857 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Auth/Users?IsDeleted=False - null null
+2026-03-28 23:15:42.871 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AuthController.GetUsers (Hospital.API)'
+2026-03-28 23:15:42.880 +03:00 [INF] Route matched with {action = "GetUsers", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetUsers(System.Nullable`1[System.Boolean], System.Nullable`1[System.Boolean]) on controller Hospital.API.Controllers.AuthController (Hospital.API).
+2026-03-28 23:15:42.955 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[UserName], [a].[FullName], [a].[EmployeeId], (
+    SELECT TOP(1) [a1].[Name]
+    FROM [AspNetUserRoles] AS [a0]
+    INNER JOIN [AspNetRoles] AS [a1] ON [a0].[RoleId] = [a1].[Id]
+    WHERE [a0].[UserId] = [a].[Id]) AS [Role], [a].[IsActive], [a].[IsDeleted]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[IsDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:42.978 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.UserViewDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:43.000 +03:00 [INF] Executed action Hospital.API.Controllers.AuthController.GetUsers (Hospital.API) in 115.288ms
+2026-03-28 23:15:43.003 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AuthController.GetUsers (Hospital.API)'
+2026-03-28 23:15:43.007 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Auth/Users?IsDeleted=False - 200 null application/json; charset=utf-8 149.591ms
+2026-03-28 23:15:44.179 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/JobTitles - null null
+2026-03-28 23:15:44.183 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API)'
+2026-03-28 23:15:44.185 +03:00 [INF] Route matched with {action = "GetJobTitles", controller = "JobTitles"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.JobTitleDTO]]] GetJobTitles() on controller Hospital.API.Controllers.JobTitlesController (Hospital.API).
+2026-03-28 23:15:44.199 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [j].[Id], [j].[Title]
+FROM [JobTitles] AS [j]
+2026-03-28 23:15:44.231 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.JobTitleVeiwDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:44.234 +03:00 [INF] Executed action Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API) in 40.5617ms
+2026-03-28 23:15:44.235 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.JobTitlesController.GetJobTitles (Hospital.API)'
+2026-03-28 23:15:44.239 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/JobTitles - 200 null application/json; charset=utf-8 60.3172ms
+2026-03-28 23:15:45.217 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/TransferLog?searchTerm=&page=1&pageSize=15 - null null
+2026-03-28 23:15:45.241 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API)'
+2026-03-28 23:15:45.243 +03:00 [INF] Route matched with {action = "GetTransferLogs", controller = "TransferLog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetTransferLogs(System.String, System.Nullable`1[System.Int32], Int32, Int32) on controller Hospital.API.Controllers.TransferLogController (Hospital.API).
+2026-03-28 23:15:45.259 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransferLogs] AS [t]
+2026-03-28 23:15:45.279 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[EmployeeId], [t1].[Name] AS [EmployeeName], [t0].[OldDepartmentId], [t0].[NewDepartmentId], [t0].[OldShiftType], [t0].[NewShiftType], [t0].[TransferDate], [t0].[AdOrderNumber], (
+    SELECT TOP(1) [d].[Name]
+    FROM [Departments] AS [d]
+    WHERE [d].[isDeleted] = CAST(0 AS bit) AND [d].[Id] = [t0].[OldDepartmentId]) AS [OldDepartmentName], (
+    SELECT TOP(1) [d0].[Name]
+    FROM [Departments] AS [d0]
+    WHERE [d0].[isDeleted] = CAST(0 AS bit) AND [d0].[Id] = [t0].[NewDepartmentId]) AS [NewDepartmentName]
+FROM (
+    SELECT [t].[Id], [t].[AdOrderNumber], [t].[EmployeeId], [t].[NewDepartmentId], [t].[NewShiftType], [t].[OldDepartmentId], [t].[OldShiftType], [t].[TransferDate]
+    FROM [TransferLogs] AS [t]
+    ORDER BY [t].[TransferDate] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t0]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Name]
+    FROM [Employees] AS [e]
+    WHERE [e].[isDeleted] = CAST(0 AS bit)
+) AS [t1] ON [t0].[EmployeeId] = [t1].[Id]
+ORDER BY [t0].[TransferDate] DESC
+2026-03-28 23:15:45.297 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`4[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.TransferLogDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:15:45.306 +03:00 [INF] Executed action Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API) in 52.1897ms
+2026-03-28 23:15:45.314 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.TransferLogController.GetTransferLogs (Hospital.API)'
+2026-03-28 23:15:45.324 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/TransferLog?searchTerm=&page=1&pageSize=15 - 200 null application/json; charset=utf-8 106.8521ms
+2026-03-28 23:15:46.124 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - null null
+2026-03-28 23:15:46.135 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:15:46.138 +03:00 [INF] Route matched with {action = "GetAbsents", controller = "Absents"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetAbsents(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.Boolean], Int32, Int32) on controller Hospital.API.Controllers.AbsentsController (Hospital.API).
+2026-03-28 23:15:46.151 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Absents] AS [a]
+WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:46.164 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [e].[Name] AS [EmployeeName], [t].[Date], [t].[isDeleted] AS [IsDeleted]
+FROM (
+    SELECT [a].[Id], [a].[Date], [a].[EmployeeId], [a].[isDeleted]
+    FROM [Absents] AS [a]
+    WHERE [a].[isDeleted] = @__IsDeleted_Value_0
+    ORDER BY [a].[Date] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[Date] DESC
+2026-03-28 23:15:46.175 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Collections.Generic.List`1[[Hospital.Core.DTOs.AbsentFullDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-28 23:15:46.188 +03:00 [INF] Executed action Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API) in 46.5452ms
+2026-03-28 23:15:46.196 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.AbsentsController.GetAbsents (Hospital.API)'
+2026-03-28 23:15:46.200 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Absents?searchTerm=&IsDeleted=false&page=1&pageSize=15 - 200 null application/json; charset=utf-8 76.116ms
+2026-03-28 23:15:47.768 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Departments?IsDeleted=false - null null
+2026-03-28 23:15:47.776 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API)'
+2026-03-28 23:15:47.793 +03:00 [INF] Route matched with {action = "GetDepartments", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Hospital.Core.DTOs.DepartmentDto]]] GetDepartments(System.Nullable`1[System.Boolean]) on controller Hospital.API.Controllers.DepartmentsController (Hospital.API).
+2026-03-28 23:15:47.815 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Name], [d].[isDeleted] AS [IsDeleted], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e]
+    WHERE [d].[Id] = [e].[DepartmentId] AND [e].[isDeleted] = CAST(0 AS bit)) AS [StaffCount], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e0]
+    WHERE [d].[Id] = [e0].[DepartmentId] AND [e0].[isDeleted] = CAST(0 AS bit) AND [e0].[ShiftType] = 0) AS [MorningCount], (
+    SELECT COUNT(*)
+    FROM [Employees] AS [e1]
+    WHERE [d].[Id] = [e1].[DepartmentId] AND [e1].[isDeleted] = CAST(0 AS bit) AND [e1].[ShiftType] = 1) AS [NightCount]
+FROM [Departments] AS [d]
+WHERE [d].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:47.827 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Hospital.Core.DTOs.DepartmentDto, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:47.831 +03:00 [INF] Executed action Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API) in 22.4877ms
+2026-03-28 23:15:47.835 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.DepartmentsController.GetDepartments (Hospital.API)'
+2026-03-28 23:15:47.839 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Departments?IsDeleted=false - 200 null application/json; charset=utf-8 70.8133ms
+2026-03-28 23:15:48.579 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=1&pageSize=15&searchTerm= - null null
+2026-03-28 23:15:48.672 +03:00 [INF] Executing endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:48.679 +03:00 [INF] Route matched with {action = "GetEmployees", controller = "Employees"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[Hospital.Core.DTOs.PagedResult`1[Hospital.Core.DTOs.EmployeeSimpleDTO]]] GetEmployees(System.Nullable`1[System.Boolean], System.String, Int32, Int32) on controller Hospital.API.Controllers.EmployeesController (Hospital.API).
+2026-03-28 23:15:48.690 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+2026-03-28 23:15:48.700 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__IsDeleted_Value_0='?' (DbType = Boolean), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Name], [e].[BirthDate], [e].[HireDate], [e].[Gender], [e].[PhoneNumber], [e].[isDeleted] AS [IsDeleted], [e].[DepartmentId] AS [DepartmentID]
+FROM [Employees] AS [e]
+WHERE [e].[isDeleted] = @__IsDeleted_Value_0
+ORDER BY [e].[Id] DESC
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-03-28 23:15:48.723 +03:00 [INF] Executing OkObjectResult, writing value of type 'Hospital.Core.DTOs.PagedResult`1[[Hospital.Core.DTOs.EmployeeSimpleDTO, Hospital.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-28 23:15:48.727 +03:00 [INF] Executed action Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API) in 42.4005ms
+2026-03-28 23:15:48.736 +03:00 [INF] Executed endpoint 'Hospital.API.Controllers.EmployeesController.GetEmployees (Hospital.API)'
+2026-03-28 23:15:48.739 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7278/api/Employees?IsDeleted=False&page=1&pageSize=15&searchTerm= - 200 null application/json; charset=utf-8 159.8421ms

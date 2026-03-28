@@ -21,26 +21,40 @@ namespace Hospital.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<IEnumerable<AbsentFullDto>>> GetAbsents([FromQuery] int? employeeId ,[FromQuery] bool? IsDeleted)
+        public async Task<ActionResult> GetAbsents(
+    [FromQuery] string? searchTerm,
+    [FromQuery] DateTime? date,
+    [FromQuery] bool? IsDeleted,
+    [FromQuery] int page = 1,
+    [FromQuery] int pageSize = 15)
         {
-            IQueryable<Absent> query = _context.Absents.IgnoreQueryFilters().AsNoTracking();
+            var query = _context.Absents.Include(a => a.Employee).IgnoreQueryFilters().AsQueryable();
 
-            if (employeeId.HasValue)
-                query = query.Where(a => a.EmployeeId == employeeId);
-            if(IsDeleted.HasValue)
-            {
+            // الفلاتر
+            if (!string.IsNullOrEmpty(searchTerm))
+                query = query.Where(a => a.Employee.Name.Contains(searchTerm));
+            if (date.HasValue)
+                query = query.Where(a => a.Date.Date == date.Value.Date);
+            if (IsDeleted.HasValue)
                 query = query.Where(a => a.isDeleted == IsDeleted.Value);
-            }
 
-            var absents = await query.Select(a => new AbsentFullDto
-            {
-                Id = a.Id,
-                EmployeeId = a.EmployeeId,
-                Date = a.Date,
-                IsDeleted = a.isDeleted
-            }).ToListAsync();
+            // الحسابات
+            var totalRecords = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
 
-            return Ok(absents);
+            var items = await query
+                .OrderByDescending(a => a.Date)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(a => new AbsentFullDto
+                {
+                    Id = a.Id,
+                    EmployeeName = a.Employee.Name,
+                    Date = a.Date,
+                    IsDeleted = a.isDeleted
+                }).ToListAsync();
+
+            return Ok(new { Items = items, TotalPages = totalPages, CurrentPage = page });
         }
 
         [HttpGet("{id}")]

@@ -35,6 +35,10 @@
         <DataTemplate DataType="{x:Type vm:TransferLogViewModel}">
             <views:TransferLogView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AbsentsViewModel}">
+            <views:AbsentsView/>
+        </DataTemplate>
+
         <Style x:Key="MenuButtonStyle" TargetType="RadioButton">
             <Setter Property="Template">
                 <Setter.Value>

@@ -1,0 +1,40 @@
+﻿<Window x:Class="Hospital.Desktop.Views.AbsentFormView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="تسجيل غياب جديد" Height="300" Width="400" 
+        WindowStartupLocation="CenterScreen" FlowDirection="RightToLeft" ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="ابحث عن الموظف بالاسم:" Margin="0,0,0,5" Foreground="#2C3E50" FontWeight="Bold"/>
+            <ComboBox ItemsSource="{Binding Employees}" 
+                      DisplayMemberPath="Name" 
+                      SelectedValuePath="Id" 
+                      SelectedValue="{Binding Absent.EmployeeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      IsEditable="True" 
+                      Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                      StaysOpenOnEdit="True"
+                      Height="35" VerticalContentAlignment="Center"/>
+            <TextBlock Text="* اكتب 3 أحرف على الأقل للبحث" FontSize="10" Foreground="Gray" Margin="0,2,0,0"/>
+
+            <TextBlock Text="تاريخ الغياب:" Margin="0,20,0,5" Foreground="#2C3E50" FontWeight="Bold"/>
+            <DatePicker SelectedDate="{Binding Absent.Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        Height="35" VerticalContentAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
+                <Button Content="تسجيل الغياب" 
+                        Command="{Binding SaveCommand}" 
+                        Width="130" Height="40" 
+                        Background="#27AE60" Foreground="White" 
+                        BorderThickness="0" FontWeight="Bold"/>
+
+                <Button Content="إلغاء" 
+                        IsCancel="True" 
+                        Width="100" Height="40" 
+                        Margin="15,0,0,0" 
+                        Background="#95A5A6" Foreground="White" 
+                        BorderThickness="0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

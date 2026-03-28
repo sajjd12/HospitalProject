@@ -56,6 +56,7 @@ namespace Hospital.Desktop.ViewModels
                         SelectedMenuTitle = "الأجازات";
                         break;
                     case "Absents":
+                        CurrentView = new AbsentsViewModel();
                         SelectedMenuTitle = "الغيابات";
                         break;
                     case "Employees":
