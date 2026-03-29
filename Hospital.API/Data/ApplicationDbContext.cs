@@ -40,22 +40,24 @@ namespace Hospital.API.Data
         {
             var userId = _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "System";
 
+            // 1. التقاط العمليات قبل الحفظ
             var entries = ChangeTracker.Entries()
                 .Where(e => e.Entity is not AuditLog &&
                            (e.State == EntityState.Added || e.State == EntityState.Modified || e.State == EntityState.Deleted))
                 .ToList();
 
+            // قائمة مؤقتة لتخزين معلومات التدقيق قبل كتابتها
+            var auditEntries = new List<AuditEntry>();
+
             foreach (var entry in entries)
             {
-                var auditLog = new AuditLog
+                auditEntries.Add(new AuditEntry
                 {
-                    Date = DateTime.Now,
+                    Entry = entry,
                     UserId = userId,
-                    // استخراج اسم الجدول برمجياً
+                    Date = DateTime.Now,
                     EntityName = entry.Entity.GetType().Name,
-                    // محاولة جلب المفتاح الأساسي (RecordId)
-                    RecordId = entry.Properties.FirstOrDefault(p => p.Metadata.IsPrimaryKey())?.CurrentValue?.ToString(),
-
+                    // تحديد نوع العملية
                     Type = entry.Entity switch
                     {
                         TransferLog => enAuditType.Transfer,
@@ -69,10 +71,43 @@ namespace Hospital.API.Data
                             _ => enAuditType.Add
                         }
                     }
-                };
-                AuditLogs.Add(auditLog);
+                });
             }
-            return await base.SaveChangesAsync(cancellationToken);
+
+            // 2. الحفظ الأول: لجلب المعرفات الحقيقية (الـ IDs) من قاعدة البيانات
+            var result = await base.SaveChangesAsync(cancellationToken);
+
+            // 3. الحفظ الثاني: تحديث سجلات التدقيق بالمعرفات الحقيقية
+            if (auditEntries.Any())
+            {
+                foreach (var auditEntry in auditEntries)
+                {
+                    var auditLog = new AuditLog
+                    {
+                        Date = auditEntry.Date,
+                        UserId = auditEntry.UserId,
+                        EntityName = auditEntry.EntityName,
+                        Type = auditEntry.Type,
+                        // الآن نأخذ الـ ID الحقيقي بعد أن قام SQL Server بتوليده
+                        RecordId = auditEntry.Entry.Properties.FirstOrDefault(p => p.Metadata.IsPrimaryKey())?.CurrentValue?.ToString()
+                    };
+                    AuditLogs.Add(auditLog);
+                }
+                // حفظ سجلات التدقيق فقط
+                await base.SaveChangesAsync(cancellationToken);
+            }
+
+            return result;
+        }
+
+        // كلاس داخلي بسيط للمساعدة في نقل البيانات بين المرحلتين
+        private class AuditEntry
+        {
+            public Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry Entry { get; set; }
+            public string UserId { get; set; }
+            public string EntityName { get; set; }
+            public DateTime Date { get; set; }
+            public enAuditType Type { get; set; }
         }
     }
 }

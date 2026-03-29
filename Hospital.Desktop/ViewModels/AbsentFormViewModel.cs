@@ -36,7 +36,7 @@ namespace Hospital.Desktop.ViewModels
                 SearchEmployees(value);
             }
         }
-
+        public bool IsSelecting = true;
         public event Action RequestClose;
         public ICommand SaveCommand { get; }
 

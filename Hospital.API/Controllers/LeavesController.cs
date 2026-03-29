@@ -23,30 +23,56 @@ namespace Hospital.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<IEnumerable<LeaveFullDto>>> GetLeaves([FromQuery] int? employeeId, [FromQuery] bool? IsDeleted)
+        public async Task<ActionResult> GetLeaves(
+    [FromQuery] string? employeeName,
+    [FromQuery] string? subEmployeeName,
+    [FromQuery] DateTime? date,
+    [FromQuery] bool? IsDeleted,
+    [FromQuery] int page = 1,
+    [FromQuery] int pageSize = 15)
         {
-            IQueryable<Leave> query = _context.Leaves.IgnoreQueryFilters().AsNoTracking();
+            var query = _context.Leaves
+                .Include(l => l.Employee)
+                .Include(l => l.SubEmployee)
+                .IgnoreQueryFilters()
+                .AsNoTracking();
 
-            if (employeeId.HasValue)
-                query = query.Where(l => l.EmployeeId == employeeId);
-            if(IsDeleted.HasValue)
-            {
+            // فلاتر البحث
+            if (!string.IsNullOrEmpty(employeeName))
+                query = query.Where(l => l.Employee.Name.Contains(employeeName));
+
+            if (!string.IsNullOrEmpty(subEmployeeName))
+                query = query.Where(l => l.SubEmployee.Name.Contains(subEmployeeName));
+
+            if (date.HasValue)
+                query = query.Where(l => l.StartDate.Date <= date.Value.Date && l.EndDate.Date >= date.Value.Date);
+
+            if (IsDeleted.HasValue)
                 query = query.Where(l => l.isDeleted == IsDeleted.Value);
-            }
 
-            var leaves = await query.Select(l => new LeaveFullDto
-            {
-                Id = l.Id,
-                EmployeeId = l.EmployeeId,
-                SubEmployeeId = l.SubEmployeeId,
-                Duration = l.Duration,
-                StartDate = l.StartDate,
-                EndDate = l.EndDate,
-                LeaveType = (int)l.LeaveType,
-                IsDeleted = l.isDeleted
-            }).ToListAsync();
+            var totalRecords = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalRecords / (double)pageSize);
 
-            return Ok(leaves);
+            var items = await query
+                .OrderByDescending(l => l.StartDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(l => new LeaveFullDto
+                {
+                    Id = l.Id,
+                    EmployeeId = l.EmployeeId,
+                    EmployeeName = l.Employee.Name,
+                    SubEmployeeId = l.SubEmployeeId,
+                    SubEmployeeName = l.SubEmployee.Name,
+                    Duration = l.Duration,
+                    CurrentBalance = l.Employee.LeaveBalance, // جلب الرصيد الحالي
+                    StartDate = l.StartDate,
+                    EndDate = l.EndDate,
+                    LeaveType = l.LeaveType,
+                    IsDeleted = l.isDeleted
+                }).ToListAsync();
+
+            return Ok(new { Items = items, TotalPages = totalPages, CurrentPage = page });
         }
 
         [HttpGet("{id}")]
@@ -67,7 +93,7 @@ namespace Hospital.API.Controllers
                 Duration = leave.Duration,
                 StartDate = leave.StartDate,
                 EndDate = leave.EndDate,
-                LeaveType = (int)leave.LeaveType,
+                LeaveType = leave.LeaveType,
                 IsDeleted = leave.isDeleted
             });
         }
@@ -118,7 +144,7 @@ namespace Hospital.API.Controllers
                     Duration = leave.Duration,
                     EndDate = leave.EndDate,
                     IsDeleted = leave.isDeleted,
-                    LeaveType = (int)leave.LeaveType,
+                    LeaveType = leave.LeaveType,
                     StartDate = leave.StartDate,
                     SubEmployeeId = leave.SubEmployeeId
                 };

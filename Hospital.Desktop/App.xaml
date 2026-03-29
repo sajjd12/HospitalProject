@@ -41,7 +41,9 @@
         <DataTemplate DataType="{x:Type vm:AuditLogsViewModel}">
             <views:AuditLogsView/>
         </DataTemplate>
-
+        <DataTemplate DataType="{x:Type vm:LeavesViewModel}">
+            <views:LeavesView/>
+        </DataTemplate>
         <Style x:Key="MenuButtonStyle" TargetType="RadioButton">
             <Setter Property="Template">
                 <Setter.Value>

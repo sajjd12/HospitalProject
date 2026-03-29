@@ -11,6 +11,7 @@
                       DisplayMemberPath="Name" 
                       SelectedValuePath="Id" 
                       SelectedValue="{Binding Absent.EmployeeId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      IsDropDownOpen="{Binding IsSelecting}"
                       IsEditable="True" 
                       Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
                       StaysOpenOnEdit="True"

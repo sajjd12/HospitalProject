@@ -4,14 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              FlowDirection="RightToLeft">
-    <Grid Background="#F0F2F5">
+
+    <Grid Background="#F3F3F3">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Border Background="White" Margin="15,15,15,5" CornerRadius="10" Padding="15">
-            <Grid>
+        <Border Grid.Row="0" Background="White" Margin="15" CornerRadius="8">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Opacity="0.05"/>
+            </Border.Effect>
+            <Border Padding="15">
+                <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -19,106 +25,169 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="0">
-                    <Button Command="{Binding AddEmployeeCommand}" Style="{StaticResource ActionButtonStyle}" Background="#27AE60" Foreground="White" Width="130">
+                    <Button Command="{Binding AddEmployeeCommand}" Height="35" Padding="15,0" Background="#0078D4" Foreground="White" BorderThickness="0" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="6"/>
+                            </Style>
+                        </Button.Resources>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="+" FontWeight="Bold" Margin="0,0,8,0" FontSize="16"/>
-                            <TextBlock Text="إضافة موظف"/>
+                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14"/>
+                            <TextBlock Text="إضافة موظف جديد" VerticalAlignment="Center" FontWeight="SemiBold"/>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding RefreshCommand}" Margin="10,0" Style="{StaticResource ActionButtonStyle}" Background="#3498DB" Foreground="White" Width="100">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="↻" FontWeight="Bold" Margin="0,0,8,0" FontSize="16"/>
-                            <TextBlock Text="تحديث"/>
-                        </StackPanel>
+
+                    <Button Command="{Binding RefreshCommand}" Margin="10,0" Width="40" Height="35" Background="#F0F0F0" BorderThickness="0" Cursor="Hand" ToolTip="تحديث البيانات">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="6"/>
+                            </Style>
+                        </Button.Resources>
+                        <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="16" Foreground="#555"/>
                     </Button>
                 </StackPanel>
 
-                <Border Grid.Column="1" Background="#F8F9FA" CornerRadius="5" BorderBrush="#DEE2E6" BorderThickness="1" Margin="20,0">
+                <Border Grid.Column="1" Background="#F9F9F9" CornerRadius="6" BorderBrush="#E0E0E0" BorderThickness="1" Margin="20,0">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="40"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="🔍" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#ADB5BD"/>
+                        <TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#888" FontSize="14"/>
                         <TextBox Grid.Column="1" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
                                  BorderThickness="0" Background="Transparent" VerticalContentAlignment="Center" 
-                                 Tag="ابحث عن طريق الاسم..." Padding="5,0"/>
+                                 FontSize="14" Padding="5,0"/>
+                        <TextBlock IsHitTestVisible="False" Text="ابحث باسم الموظف..." VerticalAlignment="Center" Grid.Column="1" Margin="8,0" Foreground="#AAA" FontSize="13">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                     </Grid>
                 </Border>
 
                 <StackPanel Orientation="Horizontal" Grid.Column="2">
-                    <ComboBox SelectedIndex="{Binding SelectedStatusFilter}" Width="130" Height="35" VerticalContentAlignment="Center" Margin="5,0">
-                        <ComboBoxItem Content="كل الموظفين"/>
-                        <ComboBoxItem Content="المحذوفين"/>
+                    <ComboBox SelectedIndex="{Binding SelectedStatusFilter}" Width="140" Height="35" Margin="5,0" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="جميع الحالات"/>
+                        <ComboBoxItem Content="المحذوفين فقط"/>
                     </ComboBox>
 
-                    <ComboBox SelectedIndex="{Binding SelectedGenderFilter}" Width="100" Height="35" VerticalContentAlignment="Center" Margin="5,0">
-                        <ComboBoxItem Content="الكل (جنس)"/>
+                    <ComboBox SelectedIndex="{Binding SelectedGenderFilter}" Width="120" Height="35" Margin="5,0" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="جميع الأجناس"/>
                         <ComboBoxItem Content="ذكور"/>
                         <ComboBoxItem Content="إناث"/>
                     </ComboBox>
                 </StackPanel>
             </Grid>
+                </Border>
         </Border>
 
-        <Grid Grid.Row="1" Margin="15,5,15,15">
-            <DataGrid ItemsSource="{Binding FilteredEmployees}" AutoGenerateColumns="False" IsReadOnly="True" 
-                      SelectionMode="Single" SelectionUnit="FullRow" RowHeight="50"
-                      Background="White" BorderThickness="0" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#F1F1F1">
+        <Border Grid.Row="1" Background="White" Margin="15,0,15,10" CornerRadius="8">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Opacity="0.05"/>
+            </Border.Effect>
+            <Grid>
+                <DataGrid ItemsSource="{Binding FilteredEmployees}" AutoGenerateColumns="False" IsReadOnly="True" 
+                          SelectionMode="Single" SelectionUnit="FullRow" RowHeight="55"
+                          Background="Transparent" BorderThickness="0" GridLinesVisibility="Horizontal" 
+                          HorizontalGridLinesBrush="#F0F0F0" HeadersVisibility="Column">
 
-                <DataGrid.InputBindings>
-                    <MouseBinding MouseAction="LeftDoubleClick" 
-                                  Command="{Binding ViewDetailsCommand}" 
-                                  CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
-                </DataGrid.InputBindings>
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#F9F9F9"/>
+                            <Setter Property="Foreground" Value="#666"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Padding" Value="15,10"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                            <Setter Property="BorderBrush" Value="#EEE"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="المعرف" Binding="{Binding Id}" Width="70"/>
-                    <DataGridTextColumn Header="اسم الموظف" Binding="{Binding Name}" Width="2*"/>
-                    <DataGridTextColumn Header="الجنس" Binding="{Binding Gender, Converter={StaticResource GenderConverter}}" Width="100"/>
-                    <DataGridTextColumn Header="تاريخ الميلاد" Binding="{Binding BirthDate, StringFormat={}{0:yyyy/MM/dd}}" Width="*"/>
-                    <DataGridTextColumn Header="تاريخ التعيين" Binding="{Binding HireDate, StringFormat={}{0:yyyy/MM/dd}}" Width="*"/>
-                    <DataGridTextColumn Header="رقم الهاتف" Binding="{Binding PhoneNumber}" Width="1.2*"/>
+                    <DataGrid.InputBindings>
+                        <MouseBinding MouseAction="LeftDoubleClick" 
+                                      Command="{Binding ViewDetailsCommand}" 
+                                      CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                    </DataGrid.InputBindings>
 
-                    <DataGridTemplateColumn Header="الإجراءات" Width="180">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Content="عرض" Command="{Binding DataContext.ViewDetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Foreground="#3498DB" Background="Transparent" BorderThickness="0" Cursor="Hand" FontWeight="SemiBold"/>
-                                    <TextBlock Text="|" VerticalAlignment="Center" Foreground="#DDD" Margin="5,0"/>
-                                    <Button Content="تعديل" Command="{Binding DataContext.EditEmployeeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Foreground="#F39C12" Background="Transparent" BorderThickness="0" Cursor="Hand" FontWeight="SemiBold"/>
-                                    <TextBlock Text="|" VerticalAlignment="Center" Foreground="#DDD" Margin="5,0"/>
-                                    <Button Command="{Binding DataContext.DeleteEmployeeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
-        CommandParameter="{Binding}" 
-        Content="{Binding IsDeleted, Converter={StaticResource DeleteRestoreConverter}}" 
-        Foreground="{Binding IsDeleted, Converter={StaticResource DeleteRestoreConverter}, ConverterParameter=Color}" 
-        Background="Transparent" 
-        BorderThickness="0" 
-        Cursor="Hand" 
-        FontWeight="SemiBold"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-            <Border Grid.Row="1" VerticalAlignment="Bottom" Background="White" 
-        BorderBrush="#DDD" BorderThickness="0,1,0,0" Padding="10">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="السابق" Command="{Binding PreviousPageCommand}" Width="80" Height="30" Margin="5,0"/>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="المعرف" Binding="{Binding Id}" Width="80"/>
+                        <DataGridTextColumn Header="اسم الموظف" Binding="{Binding Name}" Width="2*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="FontWeight" Value="SemiBold"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Margin" Value="10,0"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0">
-                        <TextBlock Text="الصفحة " Foreground="#666"/>
-                        <TextBlock Text="{Binding CurrentPage}" FontWeight="Bold"/>
-                        <TextBlock Text=" من " Foreground="#666"/>
-                        <TextBlock Text="{Binding TotalPages}" FontWeight="Bold"/>
-                    </StackPanel>
+                        <DataGridTextColumn Header="الجنس" Binding="{Binding Gender, Converter={StaticResource GenderConverter}}" Width="100"/>
+                        <DataGridTextColumn Header="تاريخ الميلاد" Binding="{Binding BirthDate, StringFormat={}{0:yyyy/MM/dd}}" Width="*"/>
+                        <DataGridTextColumn Header="تاريخ التعيين" Binding="{Binding HireDate, StringFormat={}{0:yyyy/MM/dd}}" Width="*"/>
 
-                    <Button Content="التالي" Command="{Binding NextPageCommand}" Width="80" Height="30" Margin="5,0"/>
+                        <DataGridTemplateColumn Header="الإجراءات" Width="200">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Button Command="{Binding DataContext.ViewDetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" ToolTip="عرض">
+                                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" Foreground="#0078D4" FontSize="16" Margin="8,0"/>
+                                        </Button>
+                                        <Button Command="{Binding DataContext.EditEmployeeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" ToolTip="تعديل">
+                                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" Foreground="#F39C12" FontSize="16" Margin="8,0"/>
+                                        </Button>
+                                        <Button Command="{Binding DataContext.DeleteEmployeeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" ToolTip="حذف / استعادة">
+                                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="16" Margin="8,0"
+                                                       Foreground="{Binding IsDeleted, Converter={StaticResource DeleteRestoreConverter}, ConverterParameter=Color}"/>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <ProgressBar IsIndeterminate="True" Height="2" VerticalAlignment="Top" 
+                             Visibility="{Binding IsLoading, Converter={StaticResource BoolToVis}}" 
+                             Foreground="#0078D4" Background="Transparent" BorderThickness="0"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Background="White" Margin="15,0,15,15" CornerRadius="8" Padding="10">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0.05"/>
+            </Border.Effect>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Command="{Binding PreviousPageCommand}" Width="40" Height="35" Background="#F0F0F0" BorderThickness="0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="12"/>
+                </Button>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="25,0">
+                    <TextBlock Text="الصفحة " Foreground="#888" FontSize="13"/>
+                    <TextBlock Text="{Binding CurrentPage}" FontWeight="Bold" Foreground="#0078D4" FontSize="14" Margin="5,0"/>
+                    <TextBlock Text="من" Foreground="#888" FontSize="13" Margin="5,0"/>
+                    <TextBlock Text="{Binding TotalPages}" FontWeight="Bold" FontSize="14" Margin="5,0"/>
                 </StackPanel>
-            </Border>
-            <ProgressBar IsIndeterminate="True" Height="3" VerticalAlignment="Top" 
-                         Visibility="{Binding IsLoading, Converter={StaticResource BoolToVis}}" Foreground="#3498DB"/>
-        </Grid>
+
+                <Button Command="{Binding NextPageCommand}" Width="40" Height="35" Background="#F0F0F0" BorderThickness="0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="12"/>
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

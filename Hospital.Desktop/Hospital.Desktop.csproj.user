@@ -35,6 +35,15 @@
     <Compile Update="Views\JobTitlesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\LeaveDetailsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LeaveFormView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LeavesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
