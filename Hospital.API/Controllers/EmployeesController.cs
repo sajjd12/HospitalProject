@@ -88,7 +88,8 @@ namespace Hospital.API.Controllers
                 PhoneNumber = employee.PhoneNumber,
                 Address = employee.Address,
                 ShiftType = employee.ShiftType,
-                Gender = employee.Gender
+                Gender = employee.Gender,
+                LeaveCardNumber = employee.LeaveCardNumber
             });
         }
         [HttpPost]
@@ -119,7 +120,8 @@ namespace Hospital.API.Controllers
                 Address = dto.Address,
                 PhoneNumber = dto.PhoneNumber,
                 JobStatus = (enJobStatus)dto.JobStatus,
-                isDeleted = false
+                isDeleted = false,
+                LeaveCardNumber = dto.LeaveCardNumber
             };
 
             try
@@ -163,6 +165,7 @@ namespace Hospital.API.Controllers
             employee.PhoneNumber = dto.PhoneNumber;
             employee.JobStatus = (enJobStatus)dto.JobStatus;
             employee.isDeleted = dto.IsDeleted; 
+            employee.LeaveCardNumber = dto.LeaveCardNumber;
 
             try
             {

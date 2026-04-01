@@ -25,5 +25,6 @@ namespace Hospital.Core.DTOs
         [MaxLength(20)]
         public string PhoneNumber { get; set; }
         public int JobStatus { get; set; }
+        public int? LeaveCardNumber { get; set; }
     }
 }

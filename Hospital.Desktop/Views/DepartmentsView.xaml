@@ -1,67 +1,144 @@
 ﻿<UserControl x:Class="Hospital.Desktop.Views.DepartmentsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             FlowDirection="RightToLeft">
-    <Grid Background="#F4F7F9">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:Hospital.Desktop.Converters" 
+             mc:Ignorable="d"
+             FlowDirection="RightToLeft"
+             FontFamily="Segoe UI"
+             Background="#F8FAFC">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <converters:DeleteRestoreConverter x:Key="DeleteRestoreConverter"/>
+
+        <Style x:Key="ModernButtonStyle" TargetType="Button">
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Background="White" Margin="15,15,15,5" CornerRadius="8" Padding="15">
+        <Border Background="White" CornerRadius="12" Padding="20" Margin="0,0,0,20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Opacity="0.05" Color="Black"/>
+            </Border.Effect>
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Text="عرض الأقسام:" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <ComboBox SelectedIndex="{Binding SelectedStatusFilter}" Width="150" Height="35" VerticalContentAlignment="Center">
-                        <ComboBoxItem Content="الكل"/>
-                        <ComboBoxItem Content="الفعالة فقط"/>
-                        <ComboBoxItem Content="المحذوفة فقط"/>
+                    <TextBlock Text="تصفية الحالة:" VerticalAlignment="Center" Foreground="#64748B" Margin="0,0,12,0"/>
+                    <ComboBox SelectedIndex="{Binding SelectedStatusFilter}" Width="180" Height="38" 
+                              VerticalContentAlignment="Center" BorderBrush="#E2E8F0">
+                        <ComboBoxItem Content="جميع الأقسام"/>
+                        <ComboBoxItem Content="الأقسام الفعالة"/>
+                        <ComboBoxItem Content="الأرشيف (المحذوفة)"/>
                     </ComboBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button Content="إضافة قسم جديد" Command="{Binding AddCommand}" Style="{StaticResource ActionButtonStyle}" Background="#2ECC71" Foreground="White" Width="140"/>
-                    <Button Content="تحديث" Command="{Binding RefreshCommand}" Style="{StaticResource ActionButtonStyle}" Background="#3498DB" Foreground="White" Margin="10,0" Width="100"/>
+                    <Button Content="+ إضافة قسم جديد" 
+                            Command="{Binding AddCommand}" 
+                            Style="{StaticResource ModernButtonStyle}" 
+                            Background="#2563EB" Foreground="White" Width="150"/>
+
+                    <Button Content="تحديث البيانات" 
+                            Command="{Binding RefreshCommand}" 
+                            Style="{StaticResource ModernButtonStyle}" 
+                            Background="White" BorderThickness="1" BorderBrush="#E2E8F0" 
+                            Foreground="#64748B" Margin="12,0" Width="120"/>
                 </StackPanel>
             </Grid>
         </Border>
 
-        <Grid Grid.Row="1" Margin="15,5,15,15">
-            <DataGrid ItemsSource="{Binding Departments}" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="50">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ت" Binding="{Binding Id}" Width="50"/>
-                    <DataGridTextColumn Header="اسم القسم" Binding="{Binding Name}" Width="2*"/>
+        <Grid Grid.Row="1">
+            <Border Background="White" CornerRadius="12" Padding="1">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="1" Opacity="0.05" Color="Black"/>
+                </Border.Effect>
+                <Grid>
+                    <DataGrid ItemsSource="{Binding Departments}" 
+                              AutoGenerateColumns="False" 
+                              IsReadOnly="True" 
+                              RowHeight="55"
+                              Background="Transparent"
+                              BorderThickness="0"
+                              GridLinesVisibility="None"
+                              HeadersVisibility="Column"
+                              HorizontalGridLinesBrush="#F1F5F9">
 
-                    <DataGridTextColumn Header="المنتسبين" Binding="{Binding StaffCount}" Width="80">
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#F8FAFC"/>
+                                <Setter Property="Foreground" Value="#475569"/>
+                                <Setter Property="Padding" Value="15,12"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                                <Setter Property="BorderBrush" Value="#E2E8F0"/>
                             </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
+                        </DataGrid.ColumnHeaderStyle>
 
-                    <DataGridTextColumn Header="صباحي" Binding="{Binding MorningCount}" Width="80"/>
-                    <DataGridTextColumn Header="خفر" Binding="{Binding NightCount}" Width="80"/>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ت" Binding="{Binding Id}" Width="60"/>
+                            <DataGridTextColumn Header="اسم القسم" Binding="{Binding Name}" Width="*"/>
 
-                    <DataGridTemplateColumn Header="الإجراءات" Width="150">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Content="تعديل" Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Foreground="#F39C12" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
-                                    <TextBlock Text=" | " VerticalAlignment="Center" Foreground="#DDD"/>
-                                    <Button Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
-                                            CommandParameter="{Binding}" 
-                                            Content="{Binding IsDeleted, Converter={StaticResource DeleteRestoreConverter}}" 
-                                            Foreground="{Binding IsDeleted, Converter={StaticResource DeleteRestoreConverter}, ConverterParameter=Color}"
-                                            Background="Transparent" BorderThickness="0" Cursor="Hand"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+                            <DataGridTemplateColumn Header="إجمالي المنتسبين" Width="130">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Background="#EFF6FF" CornerRadius="4" Padding="8,4" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding StaffCount}" Foreground="#2563EB" FontWeight="Bold"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
 
-            <ProgressBar IsIndeterminate="True" Height="4" VerticalAlignment="Top" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVis}}"/>
+                            <DataGridTextColumn Header="صباحي" Binding="{Binding MorningCount}" Width="100"/>
+                            <DataGridTextColumn Header="خفر" Binding="{Binding NightCount}" Width="100"/>
+
+                            <DataGridTemplateColumn Header="الإجراءات" Width="160">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Content="تعديل" 
+                                                    Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                                    CommandParameter="{Binding}" 
+                                                    Foreground="#2563EB" Background="Transparent" FontWeight="SemiBold"/>
+
+                                            <Separator Width="1" Height="15" Margin="8,0" Background="#E2E8F0"/>
+
+                                            <Button Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                                    CommandParameter="{Binding}" 
+                                                    Content="{Binding IsDeleted, Converter={StaticResource DeleteRestoreConverter}}" 
+                                                    Foreground="{Binding IsDeleted, Converter={StaticResource DeleteRestoreConverter}, ConverterParameter=Color}"
+                                                    Background="Transparent" FontWeight="SemiBold"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <ProgressBar IsIndeterminate="True" 
+                                 Height="3" 
+                                 VerticalAlignment="Top" 
+                                 Foreground="#2563EB"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 Visibility="{Binding IsLoading, Converter={StaticResource BoolToVis}}"/>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

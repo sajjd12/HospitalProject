@@ -1,43 +1,140 @@
 ﻿<Window x:Class="Hospital.Desktop.Views.LeaveFormView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="نموذج الإجازة" Height="500" Width="450" 
-        WindowStartupLocation="CenterScreen" FlowDirection="RightToLeft">
+        Title="نموذج الإجازة" 
+        Height="620" Width="480" 
+        WindowStartupLocation="CenterScreen" 
+        FlowDirection="RightToLeft"
+        Background="#F8FAFC"
+        FontFamily="Segoe UI"
+        ResizeMode="NoResize">
 
-    <Grid Margin="20">
-        <StackPanel>
-            <TextBlock Text="بيانات طلب الإجازة" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>
+    <Window.Resources>
+        <Style x:Key="FieldLabel" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#64748B"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+        </Style>
 
-            <TextBlock Text="الموظف صاحب الإجازة:"/>
-            <ComboBox ItemsSource="{Binding Employees}" DisplayMemberPath="Name" SelectedValuePath="Id"
-                      SelectedValue="{Binding Leave.EmployeeId}" IsEditable="True"
-                      Text="{Binding EmpSearchText, UpdateSourceTrigger=PropertyChanged}"
-                      IsDropDownOpen="{Binding IsEmpDropDownOpen}" Height="35" Margin="0,5,0,15"/>
+        <Style x:Key="ModernInput" TargetType="Control">
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#E2E8F0"/>
+            <Setter Property="Background" Value="White"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Style.Resources>
+        </Style>
 
-            <TextBlock Text="الموظف البديل:"/>
-            <ComboBox ItemsSource="{Binding SubEmployees}" DisplayMemberPath="Name" SelectedValuePath="Id"
-                      SelectedValue="{Binding Leave.SubEmployeeId}" IsEditable="True"
-                      Text="{Binding SubSearchText, UpdateSourceTrigger=PropertyChanged}"
-                      IsDropDownOpen="{Binding IsSubDropDownOpen}" Height="35" Margin="0,5,0,15"/>
+        <Style x:Key="PrimaryBtn" TargetType="Button">
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Background" Value="#2563EB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Style.Resources>
+        </Style>
 
-            <UniformGrid Columns="2">
-                <StackPanel Margin="0,0,10,0">
-                    <TextBlock Text="من تاريخ:"/>
-                    <DatePicker SelectedDate="{Binding Leave.StartDate}" Height="35" Margin="0,5"/>
-                </StackPanel>
-                <StackPanel Margin="10,0,0,0">
-                    <TextBlock Text="إلى تاريخ:"/>
-                    <DatePicker SelectedDate="{Binding Leave.EndDate}" Height="35" Margin="0,5"/>
-                </StackPanel>
-            </UniformGrid>
+        <Style x:Key="SecondaryBtn" TargetType="Button">
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#64748B"/>
+            <Setter Property="BorderBrush" Value="#E2E8F0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
 
-            <TextBlock Text="مدة الإجازة (أيام):" Margin="0,15,0,0"/>
-            <TextBox Text="{Binding Leave.Duration}" Height="35" VerticalContentAlignment="Center" Margin="0,5"/>
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
-                <Button Content="حفظ البيانات" Command="{Binding SaveCommand}" Width="150" Height="40" Background="#27AE60" Foreground="White" BorderThickness="0"/>
-                <Button Content="إلغاء" IsCancel="True" Width="100" Height="40" Margin="10,0,0,0" Background="#95A5A6" Foreground="White" BorderThickness="0"/>
-            </StackPanel>
+        <StackPanel Grid.Row="0" Margin="0,0,0,25">
+            <TextBlock Text="بيانات طلب الإجازة" FontSize="20" FontWeight="Bold" Foreground="#1E293B"/>
+            <TextBlock Text="يرجى تحديد الموظف وفترة الإجازة المطلوبة" FontSize="12" Foreground="#94A3B8" Margin="0,4,0,0"/>
         </StackPanel>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="2,2,10,2">
+            <StackPanel>
+                <TextBlock Text="الموظف صاحب الإجازة" Style="{StaticResource FieldLabel}"/>
+                <ComboBox ItemsSource="{Binding Employees}" 
+                          DisplayMemberPath="Name" 
+                          SelectedValuePath="Id"
+                          SelectedValue="{Binding Leave.EmployeeId}" 
+                          IsEditable="True"
+                          Text="{Binding EmpSearchText, UpdateSourceTrigger=PropertyChanged}"
+                          IsDropDownOpen="{Binding IsEmpDropDownOpen}" 
+                          Style="{StaticResource ModernInput}" 
+                          Margin="0,0,0,20"/>
+
+                <TextBlock Text="الموظف البديل" Style="{StaticResource FieldLabel}"/>
+                <ComboBox ItemsSource="{Binding SubEmployees}" 
+                          DisplayMemberPath="Name" 
+                          SelectedValuePath="Id"
+                          SelectedValue="{Binding Leave.SubEmployeeId}" 
+                          IsEditable="True"
+                          Text="{Binding SubSearchText, UpdateSourceTrigger=PropertyChanged}"
+                          IsDropDownOpen="{Binding IsSubDropDownOpen}" 
+                          Style="{StaticResource ModernInput}" 
+                          Margin="0,0,0,20"/>
+
+                <UniformGrid Columns="2" Margin="0,0,0,20">
+                    <StackPanel Margin="0,0,10,0">
+                        <TextBlock Text="من تاريخ" Style="{StaticResource FieldLabel}"/>
+                        <DatePicker SelectedDate="{Binding Leave.StartDate}" Style="{StaticResource ModernInput}" BorderThickness="1"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,0">
+                        <TextBlock Text="إلى تاريخ" Style="{StaticResource FieldLabel}"/>
+                        <DatePicker SelectedDate="{Binding Leave.EndDate}" Style="{StaticResource ModernInput}" BorderThickness="1"/>
+                    </StackPanel>
+                </UniformGrid>
+
+                <TextBlock Text="مدة الإجازة (بالأيام)" Style="{StaticResource FieldLabel}"/>
+                <TextBox Text="{Binding Leave.Duration}" 
+                         Style="{StaticResource ModernInput}" 
+                         Padding="12,0" 
+                         VerticalContentAlignment="Center"
+                         FontWeight="Bold" 
+                         Foreground="#2563EB"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Grid.Row="2" Margin="0,25,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" 
+                    Content="حفظ بيانات الطلب" 
+                    Command="{Binding SaveCommand}" 
+                    Style="{StaticResource PrimaryBtn}" 
+                    Margin="0,0,12,0">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="12" ShadowDepth="2" Opacity="0.1" Color="#2563EB"/>
+                </Button.Effect>
+            </Button>
+
+            <Button Grid.Column="1" 
+                    Content="إلغاء" 
+                    IsCancel="True" 
+                    Style="{StaticResource SecondaryBtn}"/>
+        </Grid>
     </Grid>
 </Window>

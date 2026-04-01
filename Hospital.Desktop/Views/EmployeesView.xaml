@@ -136,10 +136,10 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Button Command="{Binding DataContext.ViewDetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" ToolTip="عرض">
-                                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" Foreground="#0078D4" FontSize="16" Margin="8,0"/>
+                                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" Foreground="#0078D4" FontSize="16" Margin="8,0"/>
                                         </Button>
                                         <Button Command="{Binding DataContext.EditEmployeeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" ToolTip="تعديل">
-                                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" Foreground="#F39C12" FontSize="16" Margin="8,0"/>
+                                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" Foreground="#F39C12" FontSize="16" Margin="8,0"/>
                                         </Button>
                                         <Button Command="{Binding DataContext.DeleteEmployeeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}" Background="Transparent" BorderThickness="0" ToolTip="حذف / استعادة">
                                             <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="16" Margin="8,0"

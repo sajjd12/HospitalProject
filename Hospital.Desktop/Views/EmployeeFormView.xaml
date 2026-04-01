@@ -1,142 +1,232 @@
 ﻿<Window x:Class="Hospital.Desktop.Views.EmployeeFormView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="بيانات الموظف بالتفصيل" Height="650" Width="600"
-        WindowStartupLocation="CenterScreen" FlowDirection="RightToLeft">
+        Title="بيانات الموظف بالتفصيل" Height="650" Width="650"
+        WindowStartupLocation="CenterScreen" 
+        FlowDirection="RightToLeft"
+        Background="#F3F3F3"
+        AllowsTransparency="True"
+        WindowStyle="None">
 
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="SectionHeaderStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#0078D4"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <TextBlock Text="المعلومات الأساسية" FontWeight="Bold" FontSize="16" Margin="0,0,0,15" Foreground="#2C3E50"/>
+        <Style TargetType="TextBlock" x:Key="LabelStyle">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#666"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
 
-                <UniformGrid Columns="2">
-                    <StackPanel Margin="5">
-                        <TextBlock Text="الاسم الكامل:"/>
-                        <TextBox Text="{Binding em.Name}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Padding="5" Margin="0,5"/>
-                    </StackPanel>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" CornerRadius="6" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#0078D4"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#0078D4"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
-                    <StackPanel Margin="5">
-                        <TextBlock Text="الجنس:"/>
-                        <ComboBox ItemsSource="{Binding Genders}" SelectedItem="{Binding em.Gender}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Margin="0,5">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Converter={StaticResource GenderConverter}}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                    </StackPanel>
+    <Border Margin="15" Background="White" CornerRadius="12">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="20" ShadowDepth="2" Opacity="0.1"/>
+        </Border.Effect>
 
-                    <StackPanel Margin="5">
-                        <TextBlock Text="تاريخ الميلاد:"/>
-                        <DatePicker SelectedDate="{Binding em.BirthDate, Converter={StaticResource DateOnlyConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-            IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" 
-            Margin="0,5"/>
-                    </StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-                    <StackPanel Margin="5">
-                        <TextBlock Text="رقم الهاتف:"/>
-                        <TextBox Text="{Binding em.PhoneNumber}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Padding="5" Margin="0,5"/>
-                    </StackPanel>
-                </UniformGrid>
-
-                <TextBlock Text="المعلومات الوظيفية" FontWeight="Bold" FontSize="16" Margin="0,15,0,10" Foreground="#2C3E50"/>
-
-                <UniformGrid Columns="2">
-                    <StackPanel Margin="5">
-                        <TextBlock Text="القسم:"/>
-                        <ComboBox ItemsSource="{Binding Departments}" 
-              SelectedValuePath="Id" 
-              DisplayMemberPath="Name" 
-              SelectedValue="{Binding em.DepartmentId , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"
-              IsEnabled="{Binding IsAddMode}" 
-              Margin="0,5">
-                            <ComboBox.Style>
-                                <Style TargetType="ComboBox">
-                                    <Style.Triggers>
-                                        <Trigger Property="IsEnabled" Value="False">
-                                            <Setter Property="ToolTip" Value="لا يمكن تغيير القسم من هنا، يرجى استخدام نظام التنقلات."/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ComboBox.Style>
-                        </ComboBox>
-
-                        <TextBlock Text="* لتغيير القسم، استخدم قسم التنقلات" 
-               Foreground="#E74C3C" 
-               FontSize="10" 
-               Visibility="{Binding IsAddMode, Converter={StaticResource InverseBoolToVis}}"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="المسمى الوظيفي:"/>
-                        <ComboBox ItemsSource="{Binding JobTitles}" 
-          SelectedValuePath="Id" 
-          DisplayMemberPath="Title" 
-          SelectedValue="{Binding em.JobTitleId}"
-          IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" 
-          Margin="0,5"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="نوع المناوبة:"/>
-                        <ComboBox ItemsSource="{Binding ShiftTypes}" SelectedItem="{Binding em.ShiftType}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Margin="0,5">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Converter={StaticResource ShiftTypeConverter}}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="تاريخ التعيين:"/>
-                        <DatePicker SelectedDate="{Binding em.HireDate, Converter={StaticResource DateOnlyConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-            IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" 
-            Margin="0,5"/>
-                    </StackPanel>
-                </UniformGrid>
-
-                <TextBlock Text="المؤهلات والحالة" FontWeight="Bold" FontSize="16" Margin="0,15,0,10" Foreground="#2C3E50"/>
-
-                <UniformGrid Columns="2">
-                    <StackPanel Margin="5">
-                        <TextBlock Text="التحصيل الدراسي:"/>
-                        <ComboBox ItemsSource="{Binding Certificates}" SelectedItem="{Binding em.CertificateType}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Margin="0,5">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Converter={StaticResource CertificateConverter}}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="الحالة الوظيفية:"/>
-                        <ComboBox ItemsSource="{Binding JobStatuses}" SelectedItem="{Binding em.JobStatus}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Margin="0,5">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Converter={StaticResource JobStatusConverter}}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                    </StackPanel>
-                </UniformGrid>
-
-                <StackPanel Margin="5">
-                    <TextBlock Text="العنوان:"/>
-                    <TextBox Text="{Binding em.Address}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Padding="5" Height="60" TextWrapping="Wrap" Margin="0,5"/>
+            <Border Grid.Row="0" Background="#F9F9F9" Padding="20,15" CornerRadius="12,12,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="20" VerticalAlignment="Center" Foreground="#0078D4" Margin="0,0,12,0"/>
+                    <TextBlock Text="إدارة ملف الموظف" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Foreground="#333"/>
                 </StackPanel>
-            </StackPanel>
-        </ScrollViewer>
+            </Border>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Content="حفظ البيانات" Command="{Binding SaveCommand}" Width="150" Height="40" Background="#2ECC71" Foreground="White" BorderThickness="0" Visibility="{Binding IsViewMode, Converter={StaticResource InverseBoolToVis}}"/>
-            <Button Content="إغلاق" IsCancel="True" Width="100" Height="40" Margin="10,0,0,0"/>
-        </StackPanel>
-    </Grid>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="25,10">
+                <StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,15">
+                        <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Foreground="#0078D4" Margin="0,0,10,0"/>
+                        <TextBlock Text="المعلومات الأساسية" Style="{StaticResource SectionHeaderStyle}"/>
+                    </StackPanel>
+
+                    <UniformGrid Columns="2">
+                        <StackPanel Margin="5">
+                            <TextBlock Text="الاسم الكامل:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Text="{Binding em.Name}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="الجنس:" Style="{StaticResource LabelStyle}"/>
+                            <ComboBox ItemsSource="{Binding Genders}" SelectedItem="{Binding em.Gender}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Height="38" VerticalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Converter={StaticResource GenderConverter}}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="تاريخ الميلاد:" Style="{StaticResource LabelStyle}"/>
+                            <DatePicker SelectedDate="{Binding em.BirthDate, Converter={StaticResource DateOnlyConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                        IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Height="38"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="رقم الهاتف:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Text="{Binding em.PhoneNumber}" IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <Separator Margin="0,20" Background="#F0F0F0"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                        <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Foreground="#0078D4" Margin="0,0,10,0"/>
+                        <TextBlock Text="المعلومات الوظيفية" Style="{StaticResource SectionHeaderStyle}"/>
+                    </StackPanel>
+
+                    <UniformGrid Columns="2">
+                        <StackPanel Margin="5">
+                            <TextBlock Text="القسم:" Style="{StaticResource LabelStyle}"/>
+                            <ComboBox ItemsSource="{Binding Departments}" SelectedValuePath="Id" DisplayMemberPath="Name" 
+                                      SelectedValue="{Binding em.DepartmentId , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding IsAddMode}" Height="38" VerticalContentAlignment="Center"/>
+                            <TextBlock Text="* استخدم نظام التنقلات لتغيير القسم" Foreground="#E74C3C" FontSize="10" Margin="0,3,0,0"
+                                       Visibility="{Binding IsAddMode, Converter={StaticResource InverseBoolToVis}}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="المسمى الوظيفي:" Style="{StaticResource LabelStyle}"/>
+                            <ComboBox ItemsSource="{Binding JobTitles}" SelectedValuePath="Id" DisplayMemberPath="Title" 
+                                      SelectedValue="{Binding em.JobTitleId}"
+                                      IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Height="38" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="نوع المناوبة:" Style="{StaticResource LabelStyle}"/>
+                            <ComboBox ItemsSource="{Binding ShiftTypes}" SelectedItem="{Binding em.ShiftType}" 
+                                      IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Height="38" VerticalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Converter={StaticResource ShiftTypeConverter}}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="تاريخ التعيين:" Style="{StaticResource LabelStyle}"/>
+                            <DatePicker SelectedDate="{Binding em.HireDate, Converter={StaticResource DateOnlyConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                        IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Height="38"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <Separator Margin="0,20" Background="#F0F0F0"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                        <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" Foreground="#0078D4" Margin="0,0,10,0"/>
+                        <TextBlock Text="المؤهلات والإجازات" Style="{StaticResource SectionHeaderStyle}"/>
+                    </StackPanel>
+
+                    <UniformGrid Columns="2">
+                        <StackPanel Margin="5">
+                            <TextBlock Text="التحصيل الدراسي:" Style="{StaticResource LabelStyle}"/>
+                            <ComboBox ItemsSource="{Binding Certificates}" SelectedItem="{Binding em.CertificateType}" 
+                                      IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Height="38" VerticalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Converter={StaticResource CertificateConverter}}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="الحالة الوظيفية:" Style="{StaticResource LabelStyle}"/>
+                            <ComboBox ItemsSource="{Binding JobStatuses}" SelectedItem="{Binding em.JobStatus}" 
+                                      IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}" Height="38" VerticalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Converter={StaticResource JobStatusConverter}}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="الرصيد الحالي (أيام):" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Text="{Binding em.LeaveBalance}" FontWeight="Bold" Foreground="#2980B9" 
+                                     IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="رقم كارت الإجازات:" Style="{StaticResource LabelStyle}"/>
+                            <TextBox Text="{Binding em.LeaveCardNumber}" 
+                                     IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}"/>
+                        </StackPanel>
+                    </UniformGrid>
+
+                    <StackPanel Margin="5,15,5,5">
+                        <TextBlock Text="العنوان السكني الكامل:" Style="{StaticResource LabelStyle}"/>
+                        <TextBox Text="{Binding em.Address}" Height="70" TextWrapping="Wrap" AcceptsReturn="True" 
+                                 VerticalContentAlignment="Top" Padding="10"
+                                 IsEnabled="{Binding IsViewMode, Converter={StaticResource InverseBool}}"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+
+            <Border Grid.Row="2" Background="#F9F9F9" Padding="20" CornerRadius="0,0,12,12">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Command="{Binding SaveCommand}" Width="160" Height="42" Background="#0078D4" Foreground="White" BorderThickness="0" 
+                            Visibility="{Binding IsViewMode, Converter={StaticResource InverseBoolToVis}}" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="6"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                            <TextBlock Text="حفظ التغييرات" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button IsCancel="True" Width="100" Height="42" Margin="10,0,0,0" Background="Transparent" BorderBrush="#DDD" BorderThickness="1" Cursor="Hand">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="6"/>
+                            </Style>
+                        </Button.Resources>
+                        <TextBlock Text="إغلاق" VerticalAlignment="Center" Foreground="#666"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

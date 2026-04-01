@@ -32,5 +32,9 @@ namespace Hospital.Desktop.Views
                 txtPassword.Password = EncryptionHelper.Decrypt(encryptedPass);
             }
         }
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

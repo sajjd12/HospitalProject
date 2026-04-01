@@ -2939,6 +2939,11 @@
           "jobStatus": {
             "type": "integer",
             "format": "int32"
+          },
+          "leaveCardNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3079,6 +3084,11 @@
           },
           "isDeleted": {
             "type": "boolean"
+          },
+          "leaveCardNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false

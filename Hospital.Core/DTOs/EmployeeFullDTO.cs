@@ -26,5 +26,6 @@ namespace Hospital.Core.DTOs
         public string PhoneNumber { get; set; }
         public enJobStatus JobStatus { get; set; }
         public bool IsDeleted { get; set; }
+        public int? LeaveCardNumber { get; set; }
     }
 }

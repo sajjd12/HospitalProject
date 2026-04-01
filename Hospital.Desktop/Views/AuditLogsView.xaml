@@ -1,42 +1,132 @@
 ﻿<UserControl x:Class="Hospital.Desktop.Views.AuditLogsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             FlowDirection="RightToLeft">
-    <Grid Background="#F4F7F9">
+             FlowDirection="RightToLeft"
+             Background="#F8FAFC"
+             FontFamily="Segoe UI">
+
+    <UserControl.Resources>
+        <Style x:Key="ModernBtn" TargetType="Button">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Padding" Value="15,0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Border Background="White" Margin="15" CornerRadius="8" Padding="15">
-            <DockPanel>
-                <TextBlock Text="سجلات الرقابة والتدقيق (Audit Logs)" FontSize="18" FontWeight="Bold" Foreground="#2C3E50" VerticalAlignment="Center"/>
-                <Button Content="تحديث السجلات" Command="{Binding RefreshCommand}" HorizontalAlignment="Left" Width="120" Height="35" Background="#34495E" Foreground="White" BorderThickness="0"/>
-            </DockPanel>
+        <Border Background="White" CornerRadius="12" Padding="20" Margin="0,0,0,20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Opacity="0.05" Color="Black"/>
+            </Border.Effect>
+            <Grid>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="سجلات الرقابة والتدقيق" FontSize="20" FontWeight="Bold" Foreground="#1E293B"/>
+                    <TextBlock Text="مراقبة نشاط المستخدمين والعمليات الإدارية" FontSize="12" Foreground="#94A3B8" Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <Button Content="تحديث السجلات" 
+                        Command="{Binding RefreshCommand}" 
+                        HorizontalAlignment="Right" 
+                        Style="{StaticResource ModernBtn}" 
+                        Background="#334155" 
+                        Foreground="White" 
+                        Width="140"/>
+            </Grid>
         </Border>
 
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Logs}" Margin="15,0,15,5" 
-                  AutoGenerateColumns="False" IsReadOnly="True" RowHeight="50" FontSize="14">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="التاريخ والوقت" Binding="{Binding Date, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" Width="160"/>
-                <DataGridTextColumn Header="المستخدم" Binding="{Binding UserName}" Width="120"/>
-                <DataGridTextColumn Header="العملية" Binding="{Binding ActionType}" Width="100"/>
-                <DataGridTextColumn Header="الهدف (Entity)" Binding="{Binding EntityName}" Width="130"/>
-                <DataGridTextColumn Header="رقم السجل" Binding="{Binding RecordId}" Width="100"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <Border Grid.Row="1" Background="White" CornerRadius="12" Padding="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="1" Opacity="0.05" Color="Black"/>
+            </Border.Effect>
+            <DataGrid ItemsSource="{Binding Logs}" 
+                      AutoGenerateColumns="False" 
+                      IsReadOnly="True" 
+                      RowHeight="55" 
+                      BorderThickness="0" 
+                      Background="Transparent"
+                      GridLinesVisibility="None"
+                      HorizontalGridLinesBrush="#F1F5F9">
 
-        <Border Grid.Row="2" Background="White" Margin="15,0,15,15" CornerRadius="8" Padding="10">
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#F8FAFC"/>
+                        <Setter Property="Foreground" Value="#475569"/>
+                        <Setter Property="Padding" Value="15,10"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                        <Setter Property="BorderBrush" Value="#E2E8F0"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="التاريخ والوقت" Binding="{Binding Date, StringFormat='{}{0:yyyy-MM-dd | HH:mm}'}" Width="180"/>
+
+                    <DataGridTemplateColumn Header="المستخدم" Width="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Border Background="#F1F5F9" Width="24" Height="24" CornerRadius="12" Margin="0,0,8,0">
+                                        <TextBlock Text="👤" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding UserName}" VerticalAlignment="Center" FontWeight="SemiBold" Foreground="#334155"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="العملية" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Background="#EFF6FF" CornerRadius="4" Padding="8,4" HorizontalAlignment="Left">
+                                    <TextBlock Text="{Binding ActionType}" Foreground="#2563EB" FontWeight="SemiBold" FontSize="12"/>
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="الهدف (Entity)" Binding="{Binding EntityName}" Width="150"/>
+
+                    <DataGridTemplateColumn Header="رقم السجل" Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RecordId, StringFormat='# {0}'}" VerticalAlignment="Center" Foreground="#64748B" FontFamily="Consolas"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <Border Grid.Row="2" Background="White" CornerRadius="12" Padding="10" Margin="0,15,0,0">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0.03" Color="Black"/>
+            </Border.Effect>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="السابق" Command="{Binding PrevPageCommand}" Width="80" Margin="5" Background="#BDC3C7" BorderThickness="0"/>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0">
-                    <TextBlock Text="صفحة " Foreground="Gray"/>
-                    <TextBlock Text="{Binding CurrentPage}" FontWeight="Bold"/>
-                    <TextBlock Text=" من " Foreground="Gray"/>
-                    <TextBlock Text="{Binding TotalPages}" FontWeight="Bold"/>
-                </StackPanel>
-                <Button Content="التالي" Command="{Binding NextPageCommand}" Width="80" Margin="5" Background="#BDC3C7" BorderThickness="0"/>
+                <Button Content="السابق" Command="{Binding PrevPageCommand}" Width="90" Style="{StaticResource ModernBtn}" Background="#F1F5F9" Foreground="#475569"/>
+
+                <Border Background="#F8FAFC" CornerRadius="6" Margin="25,0" Padding="20,0">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="صفحة " Foreground="#94A3B8" FontSize="13"/>
+                        <TextBlock Text="{Binding CurrentPage}" FontWeight="Bold" Foreground="#2563EB" FontSize="14"/>
+                        <TextBlock Text=" من " Foreground="#94A3B8" FontSize="13" Margin="5,0"/>
+                        <TextBlock Text="{Binding TotalPages}" FontWeight="Bold" Foreground="#1E293B" FontSize="14"/>
+                    </StackPanel>
+                </Border>
+
+                <Button Content="التالي" Command="{Binding NextPageCommand}" Width="90" Style="{StaticResource ModernBtn}" Background="#F1F5F9" Foreground="#475569"/>
             </StackPanel>
         </Border>
     </Grid>

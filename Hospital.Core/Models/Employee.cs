@@ -31,6 +31,7 @@ namespace Hospital.Core.Models
         public string PhoneNumber { get; set; }
         public enJobStatus JobStatus { get; set; }
         public bool isDeleted { get; set; } = false;
+        public int? LeaveCardNumber { get; set; }
         public Department Department { get; set; }
         public Collection<Leave> Leaves { get; set; }
         public Collection<Absent> Absents { get; set; }

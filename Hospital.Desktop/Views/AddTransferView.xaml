@@ -1,35 +1,107 @@
 ﻿<Window x:Class="Hospital.Desktop.Views.AddTransferView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="إجراء نقل إداري" Height="450" Width="400" WindowStartupLocation="CenterScreen" FlowDirection="RightToLeft">
-    <Grid Margin="20">
-        <StackPanel>
-            <TextBlock Text="البحث عن الموظف (بالاسم):" Margin="0,5"/>
-            <ComboBox ItemsSource="{Binding Employees}" DisplayMemberPath="Name" SelectedValuePath="Id" 
-                      SelectedValue="{Binding Transfer.EmployeeId}" IsEditable="True" 
-                      Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" StaysOpenOnEdit="True"/>
+        Title="إجراء نقل إداري" 
+        Height="650" Width="450" 
+        WindowStartupLocation="CenterScreen" 
+        FlowDirection="RightToLeft"
+        Background="#F8FAFC"
+        FontFamily="Segoe UI">
 
-            <TextBlock Text="القسم الجديد:" Margin="0,15,0,5"/>
-            <ComboBox ItemsSource="{Binding Departments}" DisplayMemberPath="Name" SelectedValuePath="Id" 
-                      SelectedValue="{Binding Transfer.NewDepartmentId}"/>
+    <Window.Resources>
+        <Style x:Key="FieldLabel" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#64748B"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+        </Style>
 
-            <TextBlock Text="الوجبة الجديدة:" Margin="0,15,0,5"/>
-            <ComboBox ItemsSource="{Binding ShiftTypes}" SelectedItem="{Binding Transfer.NewShiftType}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Converter={StaticResource ShiftTypeConverter}}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+        <Style x:Key="ModernInput" TargetType="Control">
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#E2E8F0"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Style.Resources>
+        </Style>
 
-            <TextBlock Text="رقم الكتاب الإداري:" Margin="0,15,0,5"/>
-            <TextBox Text="{Binding Transfer.AdOrderNumber}" Padding="5"/>
+        <Style x:Key="PrimaryBtn" TargetType="Button">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="#2563EB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
 
-            <TextBlock Text="تاريخ النقل:" Margin="0,15,0,5"/>
-            <DatePicker SelectedDate="{Binding Transfer.TransferDate, Converter={StaticResource DateOnlyConverter}}"/>
+    <Grid Margin="30">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock Text="بيانات النقل الإداري" FontSize="20" FontWeight="Bold" Foreground="#1E293B" Margin="0,0,0,5"/>
+                <TextBlock Text="يرجى ملء كافة الحقول لإتمام عملية النقل" Foreground="#94A3B8" Margin="0,0,0,25"/>
 
-            <Button Content="تثبيت النقل وأرشفة الأمر" Command="{Binding SaveCommand}" Margin="0,30,0,0" 
-                    Height="40" Background="#27AE60" Foreground="White" BorderThickness="0" FontWeight="Bold"/>
-        </StackPanel>
+                <TextBlock Text="البحث عن الموظف (بالاسم)" Style="{StaticResource FieldLabel}"/>
+                <ComboBox ItemsSource="{Binding Employees}" 
+                          DisplayMemberPath="Name" 
+                          SelectedValuePath="Id" 
+                          SelectedValue="{Binding Transfer.EmployeeId}" 
+                          IsEditable="True" 
+                          Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                          StaysOpenOnEdit="True"
+                          Style="{StaticResource ModernInput}"
+                          Margin="0,0,0,20"/>
+
+                <TextBlock Text="القسم الجديد" Style="{StaticResource FieldLabel}"/>
+                <ComboBox ItemsSource="{Binding Departments}" 
+                          DisplayMemberPath="Name" 
+                          SelectedValuePath="Id" 
+                          SelectedValue="{Binding Transfer.NewDepartmentId}"
+                          Style="{StaticResource ModernInput}"
+                          Margin="0,0,0,20"/>
+
+                <TextBlock Text="الوجبة الجديدة" Style="{StaticResource FieldLabel}"/>
+                <ComboBox ItemsSource="{Binding ShiftTypes}" 
+                          SelectedItem="{Binding Transfer.NewShiftType}"
+                          Style="{StaticResource ModernInput}"
+                          Margin="0,0,0,20">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Converter={StaticResource ShiftTypeConverter}}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <TextBlock Text="رقم الكتاب الإداري" Style="{StaticResource FieldLabel}"/>
+                <TextBox Text="{Binding Transfer.AdOrderNumber}" 
+                         Style="{StaticResource ModernInput}"
+                         Margin="0,0,0,20"
+                         Padding="10,5"/>
+
+                <TextBlock Text="تاريخ النقل" Style="{StaticResource FieldLabel}"/>
+                <DatePicker SelectedDate="{Binding Transfer.TransferDate, Converter={StaticResource DateOnlyConverter}}" 
+                            Style="{StaticResource ModernInput}"
+                            Margin="0,0,0,30"
+                            BorderThickness="1"/>
+
+                <Button Content="تثبيت النقل وأرشفة الأمر" 
+                        Command="{Binding SaveCommand}" 
+                        Style="{StaticResource PrimaryBtn}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="15" ShadowDepth="2" Opacity="0.1" Color="#2563EB"/>
+                    </Button.Effect>
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
