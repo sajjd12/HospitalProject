@@ -3,3 +3,14 @@ obj/
 .vs/
 *.user
 *.suo
+Hospital.API/appsettings.json
+**/obj/
+**/bin/
+*.sql
+logs/
+Hospital.Desktop/obj/
+Hospital.Desktop/bin/
+Hospital.Core/obj/
+Hospital.Core/bin/
+Hospital.API/obj/
+Hospital.API/bin/
